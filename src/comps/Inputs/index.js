@@ -6,18 +6,14 @@ const FormInput = styled.div``
 const Test = styled.input`
 width:314px;
 height:40px;
+border:none;
 border-bottom:1.5px solid #ffff;
-border-top:none;
-border-left:none;
-border-right:none;
 background-color:transparent;
+color:#fff;
+font-size:17px;
 ::placeholder {
     color: #ffff;
     font-size: 15px;
-
-
-    /* opacity: 4; */
-    /* font-weight:bold; */
   }
 `
 
