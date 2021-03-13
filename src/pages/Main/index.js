@@ -1,16 +1,27 @@
+// import { Input } from '@styled-icons/material'
 import Divider from 'comps/Divider'
 import React from 'react'
 import styled from 'styled-components'
-import Buttons from '../../comps/Buttons'
-import LandingForm from '../../comps/LandingForm'
-import LoginForm from '../../comps/LoginForm'
-import SignupForm from '../../comps/SignupForm'
+import Buttons from 'comps/Buttons'
+import LandingForm from 'comps/LandingForm'
+import LoginForm from 'comps/LoginForm'
+import SignupForm from 'comps/SignupForm'
+import Inputs from 'comps/Inputs'
+import MainForm from 'comps/MainForm'
+
 
 // const Container = styled.div``
 
 const Main = () => {
   return (
     <div className="main">
+      <MainForm/>
+      <Inputs
+      type="text"
+      placeholder="Email"/>
+      <Inputs
+      type="password"
+      placeholder="Password"/>
        <Divider/>
       <Buttons 
       icon='icons/icon2.png' 
@@ -39,6 +50,7 @@ const Main = () => {
       />
       <LandingForm />
       <LoginForm />
+     
       <SignupForm />
      
     </div>
