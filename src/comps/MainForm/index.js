@@ -1,51 +1,55 @@
 import Buttons from 'comps/Buttons'
 import Divider from 'comps/Divider'
-import LandingForm from 'comps/LandingForm'
+import Inputs from 'comps/Inputs'
+import SignupForm from 'comps/SignupForm'
 import React from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
-  background-color: #9999;
-  border-radius: 40px 40px 0px 0px;
-  backdrop-filter: blur(100px);
   width: 100%;
-  height: 384px;
-  /* display: flex;
+  height: 490px;
+  background-color: #9999;
+  backdrop-filter: blur(100px);
+  border-radius: 40px 40px 0px 0px;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 0; */
+  padding: 30px 0;
 `
-// const TitleCont = styled.div`
-//   font-size: 24px;
-//   font-weight: 700;
-//   color: #fff;
-//   width: 140px;
-//   display: flex;
-//   flex-direction: column;
-//   text-align: center;
-// `
+const TitleCont = styled.div`
+  display: inline-flex;
+  width: 210px;
+  justify-content: space-between;
+`
+const SignupTab = styled.div`
+  font-size: 24px;
+  font-weight: 700;
+  color: #a5a5a5;
+  :hover {
+    border-bottom: 4px solid #ff3e33;
+    color: #fff;
+  }
+`
+const LoginTab = styled.div`
+  font-size: 24px;
+  font-weight: 700;
+  color: #a5a5a5;
+  :hover {
+    border-bottom: 4px solid #ff3e33;
+    color: #fff;
+  }
+`
 
 const MainForm = ({}) => {
   return (
     <Container>
-        <LandingForm/>
-      {/* <TitleCont>
-        Share <br />
-        Your Station
+      <TitleCont>
+        <SignupTab>Sign up</SignupTab>
+        <LoginTab>Login</LoginTab>
       </TitleCont>
-      <Buttons icon='icons/icon2.png' text='Continue with Facebook' />
-      <Buttons icon='icons/icon1.png' text='Continue with Email' />
 
-      <Divider />
-
-      <Buttons
-        text='Sign up with Email'
-        border='1.5px solid #fff'
-        bgcolor='transparent'
-        color='#fff'
-        hvcolor='#9494b8'
-      /> */}
+      <SignupForm/>
     </Container>
   )
 }
@@ -53,3 +57,31 @@ const MainForm = ({}) => {
 MainForm.defaultProps = {}
 
 export default MainForm
+
+
+
+
+// import LandingForm from 'comps/LandingForm'
+// import React from 'react'
+// import styled from 'styled-components'
+
+// const Container = styled.div`
+//   background-color: #9999;
+//   border-radius: 40px 40px 0px 0px;
+//   backdrop-filter: blur(100px);
+//   width: 100%;
+//   height: 384px;
+// `
+
+
+// const MainForm = ({}) => {
+//   return (
+//     <Container>
+//         <LandingForm/>
+//     </Container>
+//   )
+// }
+
+// MainForm.defaultProps = {}
+
+// export default MainForm

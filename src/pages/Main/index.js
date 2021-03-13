@@ -16,6 +16,8 @@ const Main = () => {
   return (
     <div className="main">
       <MainForm/>
+           
+      <SignupForm />
       <Inputs
       type="text"
       placeholder="Email"/>
@@ -50,8 +52,7 @@ const Main = () => {
       />
       <LandingForm />
       <LoginForm />
-     
-      <SignupForm />
+
      
     </div>
   )
