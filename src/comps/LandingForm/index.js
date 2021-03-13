@@ -1,19 +1,64 @@
+import Buttons from 'comps/Buttons'
+import Divider from 'comps/Divider'
 import React from 'react'
 import styled from 'styled-components'
 
-const Container = styled.div``
+const Container = styled.div`
+  width: 100%;
+  height: 324px;
+  background-color: #9999;
+  backdrop-filter: blur(100px);
+  border-radius: 40px 40px 0px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+  align-items: center;
+  padding:30px 0;
+  & > div {
+    /* margin: 17px 0; */
+  }
+`
+const TitleCont = styled.div`
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  width: 140px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+`
+// const BtnCont = styled.div`
+//   & > div {
+//     margin: 20px 0 0;
+//   }
+// `
+//   const TitleCont = styled.div``
 
+const LandingForm = ({}) => {
+  return (
+    <Container>
+      <TitleCont>
+        Share <br />
+        Your Station
+      </TitleCont>
+      {/* <BtnCont> */}
+      <Buttons icon='icons/icon2.png' text='Continue with Facebook' />
+      <Buttons icon='icons/icon1.png' text='Continue with Email' />
+      {/* </BtnCont> */}
 
-const LandingForm = () => {
-    return (
-        <Container>
-            LandingForm
-        </Container>
-    )
+      <Divider />
+
+      <Buttons
+        text='Sign up with Email'
+        border='1.5px solid #fff'
+        bgcolor='transparent'
+        color='#fff'
+        hvcolor='#9494b8'
+      />
+    </Container>
+  )
 }
 
-LandingForm.defaultProps={
-
-}
+LandingForm.defaultProps = {}
 
 export default LandingForm

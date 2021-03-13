@@ -1,3 +1,4 @@
+import Divider from 'comps/Divider'
 import React from 'react'
 import styled from 'styled-components'
 import Buttons from '../../comps/Buttons'
@@ -10,6 +11,7 @@ import SignupForm from '../../comps/SignupForm'
 const Main = () => {
   return (
     <div className="main">
+       <Divider/>
       <Buttons 
       icon='icons/icon2.png' 
       text='Continue with Facebook' />
@@ -38,6 +40,7 @@ const Main = () => {
       <LandingForm />
       <LoginForm />
       <SignupForm />
+     
     </div>
   )
 }
