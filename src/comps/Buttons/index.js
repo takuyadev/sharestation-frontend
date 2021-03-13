@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Container = styled.div`
-`
+const Container = styled.div``
 const BtnCont = styled.button`
   /* min-width: ${(props) => (props.width ? props.width : '300px')};
   min-height: ${(props) => (props.height ? props.height : '100px')};
@@ -10,17 +9,17 @@ const BtnCont = styled.button`
   max-height: ${(props) => (props.height ? props.height : '300px')};
   margin-right: 10px; */
   width: 314px;
-  padding-right:30px;
+  padding-right: 30px;
   height: 46px;
   font-size: 15px;
-  font-weight:400;
+  font-weight: 400;
   border-radius: 8px;
   border: ${(props) => (props.border ? props.border : 'none')};
   background-color: ${(props) => (props.bgcolor ? props.bgcolor : '#fff')};
   color: ${(props) => (props.color ? props.color : '#111')};
   cursor: pointer;
   :hover {
-    background-color: ${(props) => (props.hvcolor ? props.hvcolor : '#f0f0f5')};
+    background-color: ${(props) => (props.hvcolor ? props.hvcolor : '#e0e0eb')};
     transition-duration: 0.5s;
   }
 `

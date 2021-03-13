@@ -17,8 +17,8 @@ const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 30px 0;
-  position:fixed;
-  bottom:0;
+  position: fixed;
+  bottom: 0;
 `
 const TitleCont = styled.div`
   display: inline-flex;
@@ -52,8 +52,7 @@ const MainForm = ({}) => {
         <LoginTab>Login</LoginTab>
       </TitleCont>
       <SignupForm/>
-      {/* <LoginForm/> */}
-
+      {/* <LoginForm /> */}
     </Container>
   )
 }
@@ -61,31 +60,3 @@ const MainForm = ({}) => {
 MainForm.defaultProps = {}
 
 export default MainForm
-
-
-
-
-// import LandingForm from 'comps/LandingForm'
-// import React from 'react'
-// import styled from 'styled-components'
-
-// const Container = styled.div`
-//   background-color: #9999;
-//   border-radius: 40px 40px 0px 0px;
-//   backdrop-filter: blur(100px);
-//   width: 100%;
-//   height: 384px;
-// `
-
-
-// const MainForm = ({}) => {
-//   return (
-//     <Container>
-//         <LandingForm/>
-//     </Container>
-//   )
-// }
-
-// MainForm.defaultProps = {}
-
-// export default MainForm

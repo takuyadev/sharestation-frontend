@@ -1,20 +1,20 @@
-import LandingForm from 'comps/LandingForm'
 import React from 'react'
 import styled from 'styled-components'
+import appimg from 'comps/AppMain/img1.png'
 
-const Container = styled.div`
-width:100%;
-height:100%;
-  /* background-color: #9999; */
-  /* background-image: url(imgs/bg21.jpg); */
-  
+const Container = styled.div``
+const Test = styled.img`
+ width: 100%;
+  height: auto;
+  object-fit: fill;
+  /* object-fit: cover;
+  object-fit: contain; */
 `
 
-
-const AppMain = ({}) => {
+const AppMain = ({src}) => {
   return (
     <Container>
-        <img src="images/img1.png" />
+      <Test src={src}/>
     </Container>
   )
 }

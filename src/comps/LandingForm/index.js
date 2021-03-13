@@ -44,7 +44,7 @@ const LandingForm = ({}) => {
         border='1.5px solid #fff'
         bgcolor='transparent'
         color='#fff'
-        hvcolor='#9494b8'
+        hvcolor='#b3b3cc'
       />
     </Container>
   )

@@ -9,14 +9,14 @@ import SignupForm from 'comps/SignupForm'
 import Inputs from 'comps/Inputs'
 import MainForm from 'comps/MainForm'
 import AppMain from 'comps/AppMain'
-
+import appimg from 'comps/AppMain/img1.png'
 
 // const Container = styled.div``
 
 const Main = () => {
   return (
     <div className="main">
-      <AppMain/>
+      <AppMain src={appimg}/>
        <MainForm/>
       {/* <LandingForm /> */}
    
