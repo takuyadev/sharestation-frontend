@@ -10,7 +10,7 @@ const Container = styled.div`
   width: 100%;
   height: 490px;
   background-color: #9999;
-  backdrop-filter: blur(100px);
+  backdrop-filter: blur(15px);
   border-radius: 40px 40px 0px 0px;
   display: flex;
   flex-direction: column;

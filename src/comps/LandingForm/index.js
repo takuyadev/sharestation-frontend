@@ -6,7 +6,7 @@ import styled from 'styled-components'
 const Container = styled.div`
   background-color: #9999;
   border-radius: 40px 40px 0px 0px;
-  backdrop-filter: blur(100px);
+  backdrop-filter: blur(15px);
   width: 100%;
   height: 324px;
   display: flex;
