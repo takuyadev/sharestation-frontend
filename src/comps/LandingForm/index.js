@@ -11,12 +11,12 @@ const Container = styled.div`
   border-radius: 40px 40px 0px 0px;
   display: flex;
   flex-direction: column;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: center;
-  padding:30px 0;
-  & > div {
-    /* margin: 17px 0; */
-  }
+  padding: 30px 0;
+  /* & > div {
+    margin: 17px 0;
+  } */
 `
 const TitleCont = styled.div`
   font-size: 24px;
@@ -27,12 +27,6 @@ const TitleCont = styled.div`
   flex-direction: column;
   text-align: center;
 `
-// const BtnCont = styled.div`
-//   & > div {
-//     margin: 20px 0 0;
-//   }
-// `
-//   const TitleCont = styled.div``
 
 const LandingForm = ({}) => {
   return (
@@ -41,10 +35,8 @@ const LandingForm = ({}) => {
         Share <br />
         Your Station
       </TitleCont>
-      {/* <BtnCont> */}
       <Buttons icon='icons/icon2.png' text='Continue with Facebook' />
       <Buttons icon='icons/icon1.png' text='Continue with Email' />
-      {/* </BtnCont> */}
 
       <Divider />
 
