@@ -49,7 +49,7 @@ const MainForm = ({}) => {
         <SignupTab>Sign up</SignupTab>
         <LoginTab>Login</LoginTab>
       </TitleCont>
-      {/* <SignupForm/> */}
+      <SignupForm/>
       <LoginForm/>
 
     </Container>

@@ -2,11 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
-  /* width: 314px;
-  height: 46px; */
-  /* display: flex;
-  justify-content: center;
-  align-items: center;  */
 `
 const BtnCont = styled.button`
   /* min-width: ${(props) => (props.width ? props.width : '300px')};
@@ -15,6 +10,7 @@ const BtnCont = styled.button`
   max-height: ${(props) => (props.height ? props.height : '300px')};
   margin-right: 10px; */
   width: 314px;
+  padding-right:30px;
   height: 46px;
   font-size: 15px;
   font-weight:400;
@@ -25,7 +21,6 @@ const BtnCont = styled.button`
   cursor: pointer;
   :hover {
     background-color: ${(props) => (props.hvcolor ? props.hvcolor : '#f0f0f5')};
-    /* font-weight: bold; */
     transition-duration: 0.5s;
   }
 `
@@ -64,7 +59,7 @@ const Buttons = ({
 
 Buttons.defaultProps = {
   icon: null,
-  text: 'continue...',
+  text: null,
   border: null,
   bgcolor: null,
 }

@@ -16,7 +16,7 @@ const Main = () => {
   return (
     <div className="main">
       <MainForm/>
-           
+      {/* <LoginForm /> */}
       <SignupForm />
       <Inputs
       type="text"
@@ -51,7 +51,7 @@ const Main = () => {
       hvcolor="#5200cc"
       />
       <LandingForm />
-      <LoginForm />
+
 
      
     </div>
