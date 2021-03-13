@@ -17,6 +17,8 @@ const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 30px 0;
+  position:fixed;
+  bottom:0;
 `
 const TitleCont = styled.div`
   display: inline-flex;
@@ -50,7 +52,7 @@ const MainForm = ({}) => {
         <LoginTab>Login</LoginTab>
       </TitleCont>
       <SignupForm/>
-      <LoginForm/>
+      {/* <LoginForm/> */}
 
     </Container>
   )

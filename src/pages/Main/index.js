@@ -8,6 +8,7 @@ import LoginForm from 'comps/LoginForm'
 import SignupForm from 'comps/SignupForm'
 import Inputs from 'comps/Inputs'
 import MainForm from 'comps/MainForm'
+import AppMain from 'comps/AppMain'
 
 
 // const Container = styled.div``
@@ -15,10 +16,11 @@ import MainForm from 'comps/MainForm'
 const Main = () => {
   return (
     <div className="main">
-      <MainForm/>
-      {/* <LoginForm /> */}
-      <SignupForm />
-      <Inputs
+      <AppMain/>
+       <MainForm/>
+      {/* <LandingForm /> */}
+   
+      {/* <Inputs
       type="text"
       placeholder="Email"/>
       <Inputs
@@ -49,8 +51,8 @@ const Main = () => {
       bgcolor="#6524FF"
       color="#fff"
       hvcolor="#5200cc"
-      />
-      <LandingForm />
+      /> */}
+      
 
 
      
