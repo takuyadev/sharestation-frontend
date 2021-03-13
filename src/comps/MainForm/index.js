@@ -1,6 +1,7 @@
 import Buttons from 'comps/Buttons'
 import Divider from 'comps/Divider'
 import Inputs from 'comps/Inputs'
+import LoginForm from 'comps/LoginForm'
 import SignupForm from 'comps/SignupForm'
 import React from 'react'
 import styled from 'styled-components'
@@ -48,8 +49,9 @@ const MainForm = ({}) => {
         <SignupTab>Sign up</SignupTab>
         <LoginTab>Login</LoginTab>
       </TitleCont>
+      {/* <SignupForm/> */}
+      <LoginForm/>
 
-      <SignupForm/>
     </Container>
   )
 }
