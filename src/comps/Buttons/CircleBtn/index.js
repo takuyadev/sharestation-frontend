@@ -13,7 +13,7 @@ const BtnCont = styled.button`
 `
 const IconCont = styled.img``
 
-const CitcleBtn = ({ icon, onClick, btnname }) => {
+const CircleBtn = ({ icon, onClick, btnname }) => {
   return (
     <BtnCont
       onClick={() => {
@@ -26,8 +26,8 @@ const CitcleBtn = ({ icon, onClick, btnname }) => {
   )
 }
 
-CitcleBtn.defaultProps = {
+CircleBtn.defaultProps = {
   onClick: () => {},
 }
 
-export default CitcleBtn
+export default CircleBtn

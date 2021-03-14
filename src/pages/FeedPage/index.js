@@ -4,10 +4,10 @@ import LoginForm from 'comps/LoginForm'
 import SignupForm from 'comps/SignupForm'
 import Tab from 'comps/Tab'
 import AppBackImage from 'comps/AppBackImage'
-import AddBtn from 'comps/Buttons/CitcleBtn'
-import HeartBtn from 'comps/Buttons/HeartBtn'
-import NextBtn from 'comps/Buttons/NextBtn'
-import CitcleBtn from 'comps/Buttons/CitcleBtn'
+import CircleBtn from 'comps/Buttons/CircleBtn'
+import TipsForm from 'comps/TipsForm'
+import Avatar from 'comps/Avatar'
+import DropdownBtn from 'comps/Buttons/DropdownBtn'
 
 const Container = styled.div`
   width: 100%;
@@ -17,28 +17,33 @@ const Container = styled.div`
   /* justify-content: space-between;
   align-items: center; */
 `
-const Zz = styled.div`
-  z-index: -1;
+const BackCont = styled.div`
+  /* z-index: -1; */
 `
 const BtnCont = styled.div`
-display:flex;
-flex-direction:column;
-height:200px;
-/* background-color:#dad; */
-justify-content:space-between;
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  /* background-color:#dad; */
+  justify-content: space-between;
 `
+const TipCont = styled.div``
 
 const FeedPage = ({}) => {
   return (
     <Container>
-      <Zz>
+      <BackCont>
         <AppBackImage src='images/img2.png' />
-      </Zz>
+      </BackCont>
       <BtnCont>
-        <CitcleBtn icon='icons/icon3.png' btnname="nextBtn"/>
-        <CitcleBtn icon='icons/icon4.png' btnname="heartBtn"/>
-        <CitcleBtn icon='icons/icon5.png' btnname="addBtn"/>
+        <CircleBtn icon='icons/icon3.png' btnname='nextBtn' />
+        <CircleBtn icon='icons/icon4.png' btnname='heartBtn' />
+        <CircleBtn icon='icons/icon5.png' btnname='addBtn' />
       </BtnCont>
+      <TipCont>
+        {/* <DropdownBtn icon='icons/icon7.png' /> */}
+        <TipsForm />
+      </TipCont>
     </Container>
   )
 }
