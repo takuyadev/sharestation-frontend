@@ -50,7 +50,7 @@ const SignupForm = ({ display, onBtnClick, name}) => {
       </InputCont>
       <BtnCont >
         <Buttons
-          text='Sign updd'
+          text='Sign up'
           bgcolor='#6524FF'
           color='#fff'
           hvcolor='#5200cc'
