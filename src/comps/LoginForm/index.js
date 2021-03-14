@@ -7,11 +7,13 @@ import styled from 'styled-components'
 const Container = styled.div`
   width: 100%;
   height: 550px;
-  display: flex;
+  display:flex;
+  /* display: ${(props) => (props.display ? props.display : "none")}; */
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   padding: 30px 0;
+  ${(props) => props.display && 'display:' + props.display + ';'}
 `
 
 const InputCont = styled.div`
@@ -26,9 +28,9 @@ const BtnCont = styled.div`
   justify-content: space-between;
 `
 
-const LoginForm = ({}) => {
+const LoginForm = ({display}) => {
   return (
-    <Container>
+    <Container display={display}>
       <InputCont>
         <Inputs type='text' placeholder='Email' />
         <Inputs type='password' placeholder='Password' />

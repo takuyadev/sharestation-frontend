@@ -12,10 +12,11 @@ const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 30px 0;
+  ${(props) => props.display && 'display:' + props.display + ';'}
 `
 
 const InputCont = styled.div`
-& > div {
+  & > div {
     margin: 30px 0;
   }
 `
@@ -26,9 +27,9 @@ const BtnCont = styled.div`
   justify-content: space-between;
 `
 
-const SignupForm = ({}) => {
+const SignupForm = ({ display }) => {
   return (
-    <Container>
+    <Container display={display}>
       <InputCont>
         <Inputs type='text' placeholder='Email' />
         <Inputs type='password' placeholder='Password' />

@@ -38,9 +38,11 @@ const Buttons = ({
   bgcolor,
   color,
   hvcolor,
+  onClick,
+  name
 }) => {
   return (
-    <Container>
+    <Container onClick={() => {onClick(name)}}>
       <BtnCont
         bgcolor={bgcolor}
         border={border}
@@ -61,6 +63,7 @@ Buttons.defaultProps = {
   text: null,
   border: null,
   bgcolor: null,
+  onClick: () => {},
 }
 
 export default Buttons

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import appimg from 'comps/AppMain/img1.png'
+import appimg from 'comps/AppBackImage/img1.png'
 
 const Container = styled.div``
 const Test = styled.img`
@@ -11,7 +11,7 @@ const Test = styled.img`
   object-fit: contain; */
 `
 
-const AppMain = ({src}) => {
+const AppBackImage = ({src}) => {
   return (
     <Container>
       <Test src={src}/>
@@ -19,6 +19,6 @@ const AppMain = ({src}) => {
   )
 }
 
-AppMain.defaultProps = {}
+AppBackImage.defaultProps = {}
 
-export default AppMain
+export default AppBackImage

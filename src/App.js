@@ -1,10 +1,13 @@
+import Form from 'pages/Form';
+import MainForm from 'pages/Form';
 import './App.scss';
-import Main from './pages/Main';
+import MainPage from './pages/MainPage';
 
 function App() {
   return (
     <div className="App">
-      <Main/>
+      <MainPage/>
+      <Form/>
     </div>
   );
 }
