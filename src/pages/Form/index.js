@@ -29,18 +29,18 @@ const TabCont = styled.div`
 `
 
 const Form = ({}) => {
-
-  const [clickTab, setClickTab] = useState(null);
+  const [clickTab, setClickTab] = useState(null)
   // const [clickLoginTab, setClickLoginTab] = useState(null);
- 
+
   const HandleClickTab = (name) => {
     // alert('Signup Tab dd' + name)
-    setClickTab(name);
+    setClickTab(name)
   }
-  // const HandleLoginTabClick = (name) => {
-  //   // alert('login Tab dd' + name)
-  //   setClickLoginTab(name);
-  // }
+  const HandleBtnClick = (name, email, pass, fullname) => {
+    // alert('test btn click' + name)
+    // setClickLoginTab(name);
+    console.log(email, pass, fullname);
+  }
 
   return (
     <Container>
@@ -49,8 +49,14 @@ const Form = ({}) => {
         <Tab onTabClick={HandleClickTab} name='Login' text='Login' />
       </TabCont>
 
-      <SignupForm display={clickTab === "Signup" ? "display" : "none" }/>
-      <LoginForm display={clickTab === "Login" ? 'display' : 'none'}/>
+      <SignupForm
+        display={clickTab === 'Signup' ? 'display' : 'none'}
+        name='Signup'
+        onBtnClick={HandleBtnClick}
+      />
+      <LoginForm display={clickTab === 'Login' ? 'display' : 'none'} 
+       name='Login'
+      onBtnClick={HandleBtnClick}/>
     </Container>
   )
 }

@@ -17,16 +17,10 @@ const Test = styled.input`
   }
 `
 
-const Inputs = ({ type, placeholder }) => {
+const Inputs = ({ type, placeholder, onChange }) => {
   return (
     <FormInput>
-      <Test
-        type={type}
-        placeholder={placeholder}
-        // onChange={(e) => {
-        //   setUsername(e.target.value);
-        // }}
-      />
+      <Test type={type} placeholder={placeholder} onChange={onChange} />
     </FormInput>
   )
 }
