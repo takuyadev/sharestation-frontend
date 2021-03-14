@@ -1,8 +1,5 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import Buttons from 'comps/Buttons'
-import Divider from 'comps/Divider'
-import Inputs from 'comps/Inputs'
 import LoginForm from 'comps/LoginForm'
 import SignupForm from 'comps/SignupForm'
 import Tab from 'comps/Tab'

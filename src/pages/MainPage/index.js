@@ -10,7 +10,7 @@ import Inputs from 'comps/Inputs'
 import MainForm from 'comps/MainForm'
 import Tab from 'comps/Tab'
 import AppBackImage from 'comps/AppBackImage'
-import appimg from 'comps/AppBackImage/img1.png'
+import Form from 'pages/Form'
 
 // const Container = styled.div``
 
@@ -20,7 +20,9 @@ const MainPage = () => {
 
   return (
     <div className='main'>
-      <AppBackImage src={appimg} />    
+      <AppBackImage src='images/img1.png' />   
+      {/* <Form/>  */}
+      <LandingForm/>
     </div>
   )
 }

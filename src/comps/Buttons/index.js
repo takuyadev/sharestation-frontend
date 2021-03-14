@@ -3,11 +3,6 @@ import styled from 'styled-components'
 
 const Container = styled.div``
 const BtnCont = styled.button`
-  /* min-width: ${(props) => (props.width ? props.width : '300px')};
-  min-height: ${(props) => (props.height ? props.height : '100px')};
-  max-width: ${(props) => (props.width ? props.width : '50%')};
-  max-height: ${(props) => (props.height ? props.height : '300px')};
-  margin-right: 10px; */
   width: 314px;
   padding-right: 30px;
   height: 46px;
@@ -30,8 +25,8 @@ const IconCont = styled.img`
 `
 
 const Buttons = ({
-  width,
-  height,
+  // width,
+  // height,
   icon,
   text,
   border,
@@ -48,8 +43,8 @@ const Buttons = ({
         border={border}
         color={color}
         hvcolor={hvcolor}
-        width={width}
-        height={height}
+        // width={width}
+        // height={height}
       >
         <IconCont src={icon} />
         {text}
