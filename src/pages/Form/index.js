@@ -1,8 +1,5 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import Buttons from 'comps/Buttons'
-import Divider from 'comps/Divider'
-import Inputs from 'comps/Inputs'
 import LoginForm from 'comps/LoginForm'
 import SignupForm from 'comps/SignupForm'
 import Tab from 'comps/Tab'
@@ -45,8 +42,14 @@ const Form = ({}) => {
   return (
     <Container>
       <TabCont>
-        <Tab onTabClick={HandleClickTab} name='Signup' text='Sign up' />
-        <Tab onTabClick={HandleClickTab} name='Login' text='Login' />
+        <Tab onTabClick={HandleClickTab} name='Signup' text='Sign up' 
+        color={clickTab === 'Signup' ? '#fff' : '#a5a5a5'}
+        border={clickTab === 'Signup' ? '4px solid #ff3e33' : 'none'}
+        />
+        <Tab onTabClick={HandleClickTab} name='Login' text='Login' 
+        color={clickTab === 'Login' ? '#fff' : '#a5a5a5'}
+        border={clickTab === 'Login' ? '4px solid #ff3e33' : 'none'}
+        />
       </TabCont>
 
       <SignupForm

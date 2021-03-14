@@ -9,16 +9,20 @@ import styled from 'styled-components'
 const Container = styled.div`
   font-size: 24px;
   font-weight: 700;
-  color: #a5a5a5;
+  /* color: #a5a5a5; */
+  ${(props) => props.color && 'color:' + props.color + ';'}
+  ${(props) => props.border && 'border-bottom:' + props.border + ';'}
   :hover {
-    border-bottom: 4px solid #ff3e33;
+    border-bottom: 4px solid #e60000;
     color: #fff;
   }
 `
 
-const Tab = ({ text, onTabClick, name}) => {
+const Tab = ({ text, onTabClick, name, color, border }) => {
   return (
     <Container
+      color={color}
+      border={border}
       onClick={() => {
         onTabClick(name)
       }}
@@ -29,7 +33,7 @@ const Tab = ({ text, onTabClick, name}) => {
 }
 
 Tab.defaultProps = {
-    onTabClick: () => {},
+  onTabClick: () => {},
 }
 
 export default Tab
