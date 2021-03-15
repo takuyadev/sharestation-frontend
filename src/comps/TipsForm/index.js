@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Avatar from 'comps/Avatar'
 import DropdownBtn from 'comps/Buttons/DropdownBtn'
@@ -19,6 +19,12 @@ const Container = styled.div`
 `
 const BtnCont = styled.div`
   margin: auto;
+`
+const UpBtn = styled.div`
+ display: ${(props) => (props.expanded ? 'none' : 'flex')};
+`
+const DownBtn = styled.div`
+ display: ${(props) => (props.expanded ? 'flex' : 'none')};
 `
 const MarginCont = styled.div`
   /* margin: 30px; */
@@ -52,25 +58,25 @@ const TextCont = styled.div`
 `
 
 const TipsForm = ({ id, liked, text, icon, name, expand }) => {
-
-  const[expanded, setExpanded] = useState(false)
+  const [expanded, setExpanded] = useState(false)
 
   useEffect(() => {
     setExpanded(expand)
   }, [expand])
 
   return (
-    <App 
-    onClick={()=>{setExpanded(!expanded)}}
+    <App
+      onClick={() => {
+        setExpanded(!expanded)
+      }}
     >
       <BtnCont>
-        <DropdownBtn 
-        icon={icon} 
-        //  icon='icons/icon7.png' 
-        // icon={(props) => (props.expanded ? 'icons/icon7.png' : 'icons/icon6.png')} 
-      
-        />
-        {/* icon='icons/icon7.png' */}
+        <UpBtn expanded={expanded} >
+          <DropdownBtn icon='icons/icon7.png' />
+        </UpBtn>
+        <DownBtn expanded={expanded} >
+          <DropdownBtn  icon='icons/icon6.png' />
+        </DownBtn>
       </BtnCont>
       <Container>
         <MarginCont>
@@ -91,10 +97,10 @@ const TipsForm = ({ id, liked, text, icon, name, expand }) => {
 TipsForm.defaultProps = {
   id: 'Rinahan4146',
   liked: '1.4 liked',
-  icon: 'icons/icon6.png',
+  // icon: 'icons/icon6.png',
   text:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    onExpand: () => {},
+  onExpand: () => {},
 }
 
 export default TipsForm
