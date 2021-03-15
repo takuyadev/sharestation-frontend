@@ -53,8 +53,9 @@ const TextCont = styled.div`
   font-size: 14px;
   margin-top: 30px;
   display: ${(props) => (props.expanded ? 'flex' : 'none')};
+  /* ${(props) => props.display && 'display:' + props.display + ';'} */
 `
-const Test = styled.div`
+const CcBtnCont = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
@@ -72,17 +73,17 @@ const TipsForm = ({ id, liked, text, icon, name, expand }) => {
   }, [expand])
 
   return (
-    <App
-      onClick={() => {
-        setExpanded(!expanded)
-      }}
-    >
-      <Test>
+    <App>
+      <CcBtnCont>
         <CircleBtn icon='icons/icon3.png' btnname='nextBtn' />
         <CircleBtn icon='icons/icon4.png' btnname='heartBtn' />
         <CircleBtn icon='icons/icon5.png' btnname='addBtn' />
-      </Test>
-      <UpDownBtnCont>
+      </CcBtnCont>
+      <UpDownBtnCont
+        onClick={() => {
+          setExpanded(!expanded)
+        }}
+      >
         <UpBtn expanded={expanded}>
           <DropdownBtn icon='icons/icon7.png' />
         </UpBtn>
