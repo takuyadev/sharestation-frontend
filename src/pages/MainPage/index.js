@@ -22,8 +22,6 @@ const MainPage = (expand) => {
   return (
     <div className='main'>
       <AppBackImage src='images/img1.png' />
-      {/* <Form/> */}
-
       <LFCont expanded={expanded}>
         <LandingForm
           onSignup={() => {

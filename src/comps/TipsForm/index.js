@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Avatar from 'comps/Avatar'
-import DropdownBtn from 'comps/Buttons/DropdownBtn'
+import SmallBtn from 'comps/Buttons/SmallBtn'
 import CircleBtn from 'comps/Buttons/CircleBtn'
 
 const App = styled.div`
@@ -85,10 +85,10 @@ const TipsForm = ({ id, liked, text, icon, name, expand }) => {
         }}
       >
         <UpBtn expanded={expanded}>
-          <DropdownBtn icon='icons/icon7.png' />
+          <SmallBtn icon='icons/icon7.png' />
         </UpBtn>
         <DownBtn expanded={expanded}>
-          <DropdownBtn icon='icons/icon6.png' />
+          <SmallBtn icon='icons/icon6.png' />
         </DownBtn>
       </UpDownBtnCont>
       <Container>
