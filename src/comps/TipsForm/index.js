@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Avatar from 'comps/Avatar'
 import DropdownBtn from 'comps/Buttons/DropdownBtn'
+import CircleBtn from 'comps/Buttons/CircleBtn'
 
 const App = styled.div`
   width: 100%;
@@ -17,18 +18,16 @@ const Container = styled.div`
   box-shadow: 0px 4px 54.3656px rgba(0, 0, 0, 0.4);
   padding-top: 5px;
 `
-const BtnCont = styled.div`
+const UpDownBtnCont = styled.div`
   margin: auto;
 `
 const UpBtn = styled.div`
- display: ${(props) => (props.expanded ? 'none' : 'flex')};
+  display: ${(props) => (props.expanded ? 'none' : 'flex')};
 `
 const DownBtn = styled.div`
- display: ${(props) => (props.expanded ? 'flex' : 'none')};
+  display: ${(props) => (props.expanded ? 'flex' : 'none')};
 `
 const MarginCont = styled.div`
-  /* margin: 30px; */
-  /* margin:auto; */
   margin: 20px auto 20px;
   width: 80%;
 `
@@ -54,9 +53,17 @@ const TextCont = styled.div`
   font-size: 14px;
   margin-top: 30px;
   display: ${(props) => (props.expanded ? 'flex' : 'none')};
-  /* ${(props) => props.display && 'display:' + props.display + ';'} */
 `
-
+const Test = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: flex-end;
+  /* top: 30px; */
+  margin: 0 20px;
+  height: 230px;
+  justify-content: space-between;
+`
 const TipsForm = ({ id, liked, text, icon, name, expand }) => {
   const [expanded, setExpanded] = useState(false)
 
@@ -70,14 +77,19 @@ const TipsForm = ({ id, liked, text, icon, name, expand }) => {
         setExpanded(!expanded)
       }}
     >
-      <BtnCont>
-        <UpBtn expanded={expanded} >
+      <Test>
+        <CircleBtn icon='icons/icon3.png' btnname='nextBtn' />
+        <CircleBtn icon='icons/icon4.png' btnname='heartBtn' />
+        <CircleBtn icon='icons/icon5.png' btnname='addBtn' />
+      </Test>
+      <UpDownBtnCont>
+        <UpBtn expanded={expanded}>
           <DropdownBtn icon='icons/icon7.png' />
         </UpBtn>
-        <DownBtn expanded={expanded} >
-          <DropdownBtn  icon='icons/icon6.png' />
+        <DownBtn expanded={expanded}>
+          <DropdownBtn icon='icons/icon6.png' />
         </DownBtn>
-      </BtnCont>
+      </UpDownBtnCont>
       <Container>
         <MarginCont>
           <AvatarCont>
