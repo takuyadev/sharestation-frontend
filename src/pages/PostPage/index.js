@@ -30,17 +30,17 @@ const CustomerPhoto = styled.img`
 `
 const HeaderCont = styled.div`
   padding: 30px 0;
-  margin:0 auto 0 ;
+  margin: 0 auto 0;
   /* text-align:center; */
   /* display:flex;
   align-items:center;
   justify-items:center; */
 `
 const PhotoHead = styled.div`
-display: ${(props) => (props.expanded ? 'flex' : 'none')};
+  display: ${(props) => (props.expanded ? 'flex' : 'none')};
 `
 const TipsHead = styled.div`
-display: ${(props) => (props.expanded ? 'none' : 'flex')};
+  display: ${(props) => (props.expanded ? 'none' : 'flex')};
 `
 const PIFCont = styled.div`
   display: ${(props) => (props.expanded ? 'flex' : 'none')};
@@ -70,10 +70,7 @@ const PostPage = (expand) => {
           />
         </PhotoHead>
         <TipsHead expanded={expanded}>
-        <Header
-          title='Tips'
-          state='Add tips to your selected photo'
-        />
+          <Header title='Tips' state='Add tips to your selected photo' />
         </TipsHead>
       </HeaderCont>
 
