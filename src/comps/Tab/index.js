@@ -9,7 +9,6 @@ import styled from 'styled-components'
 const Container = styled.div`
   font-size: 24px;
   font-weight: 700;
-  /* color: #a5a5a5; */
   ${(props) => props.color && 'color:' + props.color + ';'}
   ${(props) => props.border && 'border-bottom:' + props.border + ';'}
   :hover {

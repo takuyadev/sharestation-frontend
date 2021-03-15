@@ -45,7 +45,7 @@ const FeedPage = ({}) => {
       <TipCont>
         <TipsForm 
         // onExpand={HandleExpand} 
-        icon='icons/icon7.png'
+        // icon='icons/icon7.png'
         // name="expanded" 
         // expanded={clickTipForm === "expanded" ? "flex" : "none"}
         />

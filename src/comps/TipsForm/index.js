@@ -61,11 +61,16 @@ const TipsForm = ({ id, liked, text, icon, name, expand }) => {
 
   return (
     <App 
-    // onClick={()=>{onExpand(name)}}
     onClick={()=>{setExpanded(!expanded)}}
     >
       <BtnCont>
-        <DropdownBtn icon={icon} />
+        <DropdownBtn 
+        icon={icon} 
+        //  icon='icons/icon7.png' 
+        // icon={(props) => (props.expanded ? 'icons/icon7.png' : 'icons/icon6.png')} 
+      
+        />
+        {/* icon='icons/icon7.png' */}
       </BtnCont>
       <Container>
         <MarginCont>
