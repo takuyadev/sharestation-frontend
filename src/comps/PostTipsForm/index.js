@@ -20,7 +20,7 @@ const PostTipsForm = ({ tips, BtnText }) => {
   return (
     <App>
       <PostCont>{tips}</PostCont>
-      <BottomBtn BtnText="Upload" />
+      <BottomBtn BtnText='Upload' />
     </App>
   )
 }

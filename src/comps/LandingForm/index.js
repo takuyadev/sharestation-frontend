@@ -27,7 +27,7 @@ const TitleCont = styled.div`
   text-align: center;
 `
 
-const LandingForm = ({onLogin, onSignup}) => {
+const LandingForm = ({ onLogin, onSignup }) => {
   return (
     <Container>
       <TitleCont>
@@ -35,8 +35,12 @@ const LandingForm = ({onLogin, onSignup}) => {
         Your Station
       </TitleCont>
       <BasicBtn icon='icons/icon2.png' text='Continue with Facebook' />
-      <BasicBtn icon='icons/icon1.png' text='Continue with Email' 
-      onClick={() => {onLogin()}}
+      <BasicBtn
+        icon='icons/icon1.png'
+        text='Continue with Email'
+        onClick={() => {
+          onLogin()
+        }}
       />
 
       <Divider />
@@ -47,7 +51,9 @@ const LandingForm = ({onLogin, onSignup}) => {
         bgcolor='transparent'
         color='#fff'
         hvcolor='#b3b3cc'
-        onClick={() => {onSignup()}}
+        onClick={() => {
+          onSignup()
+        }}
       />
     </Container>
   )
@@ -58,6 +64,5 @@ LandingForm.defaultProps = {
   //   // alert("click")
   // }
 }
-
 
 export default LandingForm

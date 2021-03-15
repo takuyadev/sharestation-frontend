@@ -25,13 +25,14 @@ const TabCont = styled.div`
   z-index: 1;
 `
 
-const FormComp = ({tab}) => {
+const FormComp = ({ tab }) => {
   const [clickTab, setClickTab] = useState(null)
   // const [clickLoginTab, setClickLoginTab] = useState(null);
 
-  useEffect(()=>{
-    setClickTab(tab);
-  },[tab])
+  useEffect(() => {
+    setClickTab(tab)
+  }, [tab])
+
   const HandleClickTab = (name) => {
     // alert('Signup Tab dd' + name)
     setClickTab(name)
@@ -39,19 +40,25 @@ const FormComp = ({tab}) => {
   const HandleBtnClick = (name, email, pass, fullname) => {
     // alert('test btn click' + name)
     // setClickLoginTab(name);
-    console.log(email, pass, fullname);
+    console.log(email, pass, fullname)
   }
 
   return (
     <Container>
       <TabCont>
-        <Tab onTabClick={HandleClickTab} name='Signup' text='Sign up' 
-        color={clickTab === 'Signup' ? '#fff' : '#a5a5a5'}
-        border={clickTab === 'Signup' ? '4px solid #ff3e33' : 'none'}
+        <Tab
+          onTabClick={HandleClickTab}
+          name='Signup'
+          text='Sign up'
+          color={clickTab === 'Signup' ? '#fff' : '#a5a5a5'}
+          border={clickTab === 'Signup' ? '4px solid #ff3e33' : 'none'}
         />
-        <Tab onTabClick={HandleClickTab} name='Login' text='Login' 
-        color={clickTab === 'Login' ? '#fff' : '#a5a5a5'}
-        border={clickTab === 'Login' ? '4px solid #ff3e33' : 'none'}
+        <Tab
+          onTabClick={HandleClickTab}
+          name='Login'
+          text='Login'
+          color={clickTab === 'Login' ? '#fff' : '#a5a5a5'}
+          border={clickTab === 'Login' ? '4px solid #ff3e33' : 'none'}
         />
       </TabCont>
 
@@ -60,9 +67,11 @@ const FormComp = ({tab}) => {
         name='Signup'
         onBtnClick={HandleBtnClick}
       />
-      <LoginForm display={clickTab === 'Login' ? 'display' : 'none'} 
-       name='Login'
-      onBtnClick={HandleBtnClick}/>
+      <LoginForm
+        display={clickTab === 'Login' ? 'display' : 'none'}
+        name='Login'
+        onBtnClick={HandleBtnClick}
+      />
     </Container>
   )
 }
@@ -70,7 +79,7 @@ const FormComp = ({tab}) => {
 FormComp.defaultProps = {
   // onSignup: () => {},
   // onLogin: () => {},
-  tab:"Signup"
+  tab: 'Signup',
 }
 
 export default FormComp

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Divider from 'comps/Divider'
 import Inputs from 'comps/Inputs'
@@ -8,7 +8,7 @@ const Container = styled.div`
   width: 100%;
   height: 550px;
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   padding: 30px 0;
@@ -34,14 +34,20 @@ const LoginForm = ({ display, onBtnClick, name }) => {
   return (
     <Container display={display}>
       <InputCont>
-        <Inputs type='text' placeholder='Email' 
-        onChange={(e) => {
-          setEmail(e.target.value);
-        }}/>
-        <Inputs type='password' placeholder='Password' 
-        onChange={(e) => {
-          setPass(e.target.value);
-        }}/>
+        <Inputs
+          type='text'
+          placeholder='Email'
+          onChange={(e) => {
+            setEmail(e.target.value)
+          }}
+        />
+        <Inputs
+          type='password'
+          placeholder='Password'
+          onChange={(e) => {
+            setPass(e.target.value)
+          }}
+        />
       </InputCont>
       <BtnCont>
         <BasicBtn

@@ -14,7 +14,7 @@ const FormCont = styled.div`
 
 const MainPage = (expand) => {
   const [expanded, setExpanded] = useState(false)
-  const [tab,setTab] = useState("Signup")
+  const [tab, setTab] = useState('Signup')
 
   useEffect(() => {
     setExpanded(expand)

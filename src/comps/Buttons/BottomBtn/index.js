@@ -9,10 +9,7 @@ const BtnCont = styled.button`
   font-size: 18px;
   color: #fff;
   font-weight: 700;
-  /* position:fixed;
-bottom:0; */
 `
-
 const BottomBtn = ({ BtnText, onClick }) => {
   return (
     <BtnCont
