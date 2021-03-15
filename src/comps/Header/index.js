@@ -5,10 +5,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
-  /* align-items:center; */
-  /* margin:auto; */
 `
-
 const Title = styled.div`
   font-size: 24px;
   font-weight: 700;
