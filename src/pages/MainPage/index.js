@@ -14,6 +14,7 @@ const FormCont = styled.div`
 
 const MainPage = (expand) => {
   const [expanded, setExpanded] = useState(false)
+  const [tab,setTab] = useState("Signup")
 
   useEffect(() => {
     setExpanded(expand)
@@ -26,14 +27,16 @@ const MainPage = (expand) => {
         <LandingForm
           onSignup={() => {
             setExpanded(!expanded)
+            setTab('Signup')
           }}
           onLogin={() => {
             setExpanded(!expanded)
+            setTab('Login')
           }}
         />
       </LFCont>
       <FormCont expanded={expanded}>
-        <FormComp />
+        <FormComp tab={tab} />
       </FormCont>
     </div>
   )

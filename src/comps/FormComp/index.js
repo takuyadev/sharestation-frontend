@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import LoginForm from 'comps/LoginForm'
 import SignupForm from 'comps/SignupForm'
@@ -25,10 +25,13 @@ const TabCont = styled.div`
   z-index: 1;
 `
 
-const FormComp = ({}) => {
+const FormComp = ({tab}) => {
   const [clickTab, setClickTab] = useState(null)
   // const [clickLoginTab, setClickLoginTab] = useState(null);
 
+  useEffect(()=>{
+    setClickTab(tab);
+  },[tab])
   const HandleClickTab = (name) => {
     // alert('Signup Tab dd' + name)
     setClickTab(name)
@@ -67,6 +70,7 @@ const FormComp = ({}) => {
 FormComp.defaultProps = {
   // onSignup: () => {},
   // onLogin: () => {},
+  tab:"Signup"
 }
 
 export default FormComp
