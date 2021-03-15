@@ -18,15 +18,11 @@ const BtnCont = styled.button`
     transition-duration: 0.5s;
   }
 `
-
 const IconCont = styled.img`
   width: 20px;
   margin-right: 10px;
 `
-
-const Buttons = ({
-  // width,
-  // height,
+const BasicBtn = ({
   icon,
   text,
   border,
@@ -34,10 +30,14 @@ const Buttons = ({
   color,
   hvcolor,
   onClick,
-  name
+  name,
 }) => {
   return (
-    <Container onClick={() => {onClick(name)}}>
+    <Container
+      onClick={() => {
+        onClick(name)
+      }}
+    >
       <BtnCont
         bgcolor={bgcolor}
         border={border}
@@ -53,7 +53,7 @@ const Buttons = ({
   )
 }
 
-Buttons.defaultProps = {
+BasicBtn.defaultProps = {
   icon: null,
   text: null,
   border: null,
@@ -61,4 +61,4 @@ Buttons.defaultProps = {
   onClick: () => {},
 }
 
-export default Buttons
+export default BasicBtn

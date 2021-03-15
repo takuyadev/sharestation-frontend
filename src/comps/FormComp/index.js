@@ -25,7 +25,7 @@ const TabCont = styled.div`
   z-index: 1;
 `
 
-const Form = ({}) => {
+const FormComp = ({}) => {
   const [clickTab, setClickTab] = useState(null)
   // const [clickLoginTab, setClickLoginTab] = useState(null);
 
@@ -64,9 +64,9 @@ const Form = ({}) => {
   )
 }
 
-Form.defaultProps = {
+FormComp.defaultProps = {
   // onSignup: () => {},
   // onLogin: () => {},
 }
 
-export default Form
+export default FormComp

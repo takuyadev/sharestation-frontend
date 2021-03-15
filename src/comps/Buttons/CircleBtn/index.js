@@ -11,7 +11,7 @@ const BtnCont = styled.button`
   opacity: 0.5;
   backdrop-filter: blur(20px);
   :hover {
-    opacity: 1;
+    opacity: 0.9;
   }
 `
 const Icon = styled.img``
