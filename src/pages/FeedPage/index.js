@@ -1,35 +1,37 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import LoginForm from 'comps/LoginForm'
-import SignupForm from 'comps/SignupForm'
-import Tab from 'comps/Tab'
 import AppBackImage from 'comps/AppBackImage'
 import CircleBtn from 'comps/Buttons/CircleBtn'
 import TipsForm from 'comps/TipsForm'
-import Avatar from 'comps/Avatar'
-import DropdownBtn from 'comps/Buttons/DropdownBtn'
 
 const Container = styled.div`
   width: 100%;
   height: 896px;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between;
-  align-items: center; */
 `
-const BackCont = styled.div`
-  /* z-index: -1; */
-`
+const BackCont = styled.div``
 const BtnCont = styled.div`
   display: flex;
   flex-direction: column;
-  height: 200px;
-  /* background-color:#dad; */
+  position: fixed;
+  right: 0;
+  top: 30px;
+  margin: 0 20px;
+  height: 230px;
   justify-content: space-between;
 `
 const TipCont = styled.div``
 
 const FeedPage = ({}) => {
+
+  // const [clickTipForm, setClickTipForm] = useState(null)
+
+  // const HandleExpand = (name) => {
+  //   // alert('Click expand'+name)
+  //   setClickTipForm(name);
+  // }
+
   return (
     <Container>
       <BackCont>
@@ -41,8 +43,12 @@ const FeedPage = ({}) => {
         <CircleBtn icon='icons/icon5.png' btnname='addBtn' />
       </BtnCont>
       <TipCont>
-        {/* <DropdownBtn icon='icons/icon7.png' /> */}
-        <TipsForm />
+        <TipsForm 
+        // onExpand={HandleExpand} 
+        icon='icons/icon7.png'
+        // name="expanded" 
+        // expanded={clickTipForm === "expanded" ? "flex" : "none"}
+        />
       </TipCont>
     </Container>
   )

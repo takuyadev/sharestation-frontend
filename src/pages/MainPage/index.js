@@ -21,8 +21,8 @@ const MainPage = () => {
   return (
     <div className='main'>
       <AppBackImage src='images/img1.png' />   
-      {/* <Form/>  */}
-      <LandingForm/>
+      <Form/> 
+      {/* <LandingForm/> */}
     </div>
   )
 }
