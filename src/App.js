@@ -1,15 +1,16 @@
 import FeedPage from 'pages/FeedPage';
-import Form from 'pages/Form';
-import MainForm from 'pages/Form';
-import './App.scss';
 import MainPage from './pages/MainPage';
+import './App.scss';
+import SignupForm from 'comps/SignupForm';
+import FormComp from 'comps/FormComp';
+import PostPage from 'pages/PostPage';
 
 function App() {
   return (
     <div className="App">
       {/* <MainPage/> */}
-      {/* <Form/> */}
       <FeedPage/>
+      {/* <PostPage/> */}
     </div>
   );
 }

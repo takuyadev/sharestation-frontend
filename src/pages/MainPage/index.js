@@ -1,28 +1,40 @@
-// import { Input } from '@styled-icons/material'
-import Divider from 'comps/Divider'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import Buttons from 'comps/Buttons'
-import LandingForm from 'comps/LandingForm'
-import LoginForm from 'comps/LoginForm'
-import SignupForm from 'comps/SignupForm'
-import Inputs from 'comps/Inputs'
-import MainForm from 'comps/MainForm'
-import Tab from 'comps/Tab'
 import AppBackImage from 'comps/AppBackImage'
-import Form from 'pages/Form'
+import FormComp from 'comps/FormComp'
+import LandingForm from 'comps/LandingForm'
 
-// const Container = styled.div``
+const LFCont = styled.div`
+  display: ${(props) => (props.expanded ? 'flex' : 'none')};
+`
+const FormCont = styled.div`
+  display: none;
+  display: ${(props) => (props.expanded ? 'none' : 'flex')};
+`
 
-const MainPage = () => {
+const MainPage = (expand) => {
+  const [expanded, setExpanded] = useState(false)
 
-
+  useEffect(() => {
+    setExpanded(expand)
+  }, [expand])
 
   return (
     <div className='main'>
-      <AppBackImage src='images/img1.png' />   
-      {/* <Form/>  */}
-      <LandingForm/>
+      <AppBackImage src='images/img1.png' />
+      <LFCont expanded={expanded}>
+        <LandingForm
+          onSignup={() => {
+            setExpanded(!expanded)
+          }}
+          onLogin={() => {
+            setExpanded(!expanded)
+          }}
+        />
+      </LFCont>
+      <FormCont expanded={expanded}>
+        <FormComp />
+      </FormCont>
     </div>
   )
 }

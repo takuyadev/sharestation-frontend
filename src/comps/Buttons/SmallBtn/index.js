@@ -9,13 +9,10 @@ const BtnCont = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color:#dad; */
-  /* position:relative;
-  bottom:0; */
 `
 const IconCont = styled.img``
 
-const DropdownBtn = ({ icon, onClick, btnname }) => {
+const SmallBtn = ({ icon, onClick, btnname }) => {
   return (
     <BtnCont>
       <IconCont src={icon} />
@@ -23,8 +20,8 @@ const DropdownBtn = ({ icon, onClick, btnname }) => {
   )
 }
 
-DropdownBtn.defaultProps = {
+SmallBtn.defaultProps = {
   onClick: () => {},
 }
 
-export default DropdownBtn
+export default SmallBtn

@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
-import Buttons from 'comps/Buttons'
+import Buttons from 'comps/Buttons/BasicBtn'
 import Divider from 'comps/Divider'
 import Inputs from 'comps/Inputs'
+import BasicBtn from 'comps/Buttons/BasicBtn'
 
 const Container = styled.div`
   width: 100%;
@@ -49,7 +50,7 @@ const SignupForm = ({ display, onBtnClick, name}) => {
         }}/>
       </InputCont>
       <BtnCont >
-        <Buttons
+        <BasicBtn
           text='Sign up'
           bgcolor='#6524FF'
           color='#fff'
@@ -59,14 +60,14 @@ const SignupForm = ({ display, onBtnClick, name}) => {
           }}
         />
         <Divider />
-        <Buttons icon='icons/icon2.png' text='Continue with Facebook' />
+        <BasicBtn icon='icons/icon2.png' text='Continue with Facebook' />
       </BtnCont>
     </Container>
   )
 }
 
 SignupForm.defaultProps = {
-  onBtnClick: () => {}
+  onBtnClick: () => {},
 }
 
 export default SignupForm

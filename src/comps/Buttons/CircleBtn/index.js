@@ -7,11 +7,14 @@ const BtnCont = styled.button`
   border-radius: 30px;
   border: none;
   background-color: transparent;
-  backdrop-filter: blur(15px);
-  /* position:relative;
-  bottom:0; */
+  background-color: #111;
+  opacity: 0.5;
+  backdrop-filter: blur(20px);
+  :hover {
+    opacity: 0.9;
+  }
 `
-const IconCont = styled.img``
+const Icon = styled.img``
 
 const CircleBtn = ({ icon, onClick, btnname }) => {
   return (
@@ -21,7 +24,7 @@ const CircleBtn = ({ icon, onClick, btnname }) => {
       }}
       name={btnname}
     >
-      <IconCont src={icon} />
+      <Icon src={icon} />
     </BtnCont>
   )
 }
