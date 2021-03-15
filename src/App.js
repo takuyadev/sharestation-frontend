@@ -1,9 +1,7 @@
-import FeedPage from 'pages/FeedPage'
 import MainPage from './pages/MainPage'
-import './App.scss'
-import SignupForm from 'comps/SignupForm'
-import FormComp from 'comps/FormComp'
+import FeedPage from 'pages/FeedPage'
 import PostPage from 'pages/PostPage'
+import './App.scss'
 
 function App() {
   return (

@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import Buttons from 'comps/Buttons/BasicBtn'
 import Divider from 'comps/Divider'
 import Inputs from 'comps/Inputs'
 import BasicBtn from 'comps/Buttons/BasicBtn'
