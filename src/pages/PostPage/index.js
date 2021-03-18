@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import SmallBtn from 'comps/Buttons/SmallBtn'
 import Header from 'comps/Header'
-import PostTipsForm from 'comps/PostTipsForm'
-import PostImgForm from 'comps/PostImgForm'
+import UploadForm from 'comps/UploadForm'
+// import PostTipsForm from 'comps/PostTipsForm'
+// import PostImgForm from 'comps/PostImgForm'
 
 const Container = styled.div`
   width: 100%;
@@ -64,9 +65,13 @@ const PostPage = (expand) => {
 
       <HeaderCont>
         <PhotoHead expanded={expanded}>
-          <Header
+          {/* <Header
             title='Photos'
             state='Select photo describing your work station best'
+          /> */}
+          <Header
+            title='Share your Station'
+            state='Select photo and describe your work station best'
           />
         </PhotoHead>
         <TipsHead expanded={expanded}>
@@ -74,19 +79,20 @@ const PostPage = (expand) => {
         </TipsHead>
       </HeaderCont>
 
-      <ImgCont>
-        <CustomerPhoto src='images/img3.png' />
-      </ImgCont>
+      {/* <ImgCont>
+        <CustomerPhoto src='images/img2.png' />
+      </ImgCont> */}
       <PIFCont expanded={expanded}>
-        <PostImgForm
+        <UploadForm/>
+        {/* <PostImgForm
           onBtnClick={() => {
             setExpanded(!expanded)
           }}
-        />
-      </PIFCont>
-      <PTFCont expanded={expanded}>
+        />*/}
+      </PIFCont> 
+      {/* <PTFCont expanded={expanded}>
         <PostTipsForm tips='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' />
-      </PTFCont>
+      </PTFCont> */}
     </Container>
   )
 }
