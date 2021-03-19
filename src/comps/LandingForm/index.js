@@ -60,9 +60,7 @@ const LandingForm = ({ onLogin, onSignup }) => {
 }
 
 LandingForm.defaultProps = {
-  // onClick: () => {
-  //   // alert("click")
-  // }
+ 
 }
 
 export default LandingForm

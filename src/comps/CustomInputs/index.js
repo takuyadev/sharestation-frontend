@@ -26,10 +26,10 @@ const Input = styled.input`
 
 const Test = styled.input``
 
-const CustomInputs = ({ type, value, height }) => {
+const CustomInputs = ({ type, value, height, onChange }) => {
   return (
     <FormInput>
-      <Input type={type} value={value}/>
+      <Input type={type} value={value} onChange={onChange}/>
 
     </FormInput>
   )

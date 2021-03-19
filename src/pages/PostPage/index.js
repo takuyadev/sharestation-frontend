@@ -3,8 +3,10 @@ import styled from 'styled-components'
 import SmallBtn from 'comps/Buttons/SmallBtn'
 import Header from 'comps/Header'
 import UploadForm from 'comps/UploadForm'
- import PostTipsForm from 'comps/PostTipsForm'
- import PostImgForm from 'comps/PostImgForm'
+import PostTipsForm from 'comps/PostTipsForm'
+import PostImgForm from 'comps/PostImgForm'
+import Message from 'comps/Message'
+import axios from 'axios'
 
 const Container = styled.div`
   width: 100%;
@@ -52,10 +54,26 @@ const PTFCont = styled.div`
 
 const PostPage = (expand) => {
   const [expanded, setExpanded] = useState(false)
+  const [msgs, setMsgs] = useState([])
+
+  const HandleUpload = (job, tip, photo) => {
+    // alert('test')
+    console.log(job, tip, photo)
+  }
+
+  const GetMsgs = async () => {
+    var resp = await axios.get('https://advdyn2021.herokuapp.com/allmessages')
+    console.log("get message", resp)
+    setMsgs(resp.data);
+  }
 
   useEffect(() => {
     setExpanded(expand)
   }, [expand])
+
+  useEffect(() => {
+    GetMsgs()
+  }, [])
 
   return (
     <Container>
@@ -80,16 +98,17 @@ const PostPage = (expand) => {
       </HeaderCont>
 
       <ImgCont>
-        <CustomerPhoto src='images/img2.png' />
+        {/* <CustomerPhoto src='images/img2.png' /> */}
+        <Message msgs={msgs} />
       </ImgCont>
       <PIFCont expanded={expanded}>
-        <UploadForm/>
+        <UploadForm onButton={HandleUpload} />
         {/* <PostImgForm
           onBtnClick={() => {
             setExpanded(!expanded)
           }} 
         /> */}
-      </PIFCont> 
+      </PIFCont>
       {/* <PTFCont expanded={expanded}>
         <PostTipsForm tips='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' />
       </PTFCont> */}

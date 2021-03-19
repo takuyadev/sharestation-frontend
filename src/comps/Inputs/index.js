@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
 
 const FormInput = styled.div``
@@ -20,6 +20,9 @@ const Test = styled.input`
 `
 
 const Inputs = ({ type, placeholder, onChange, height }) => {
+
+
+
   return (
     <FormInput>
       <Test type={type} placeholder={placeholder} height={height} onChange={onChange} />
