@@ -56,9 +56,11 @@ const PostPage = (expand) => {
   const [expanded, setExpanded] = useState(false)
   const [msgs, setMsgs] = useState([])
 
-  const HandleUpload = (job, tip, photo) => {
-    // alert('test')
+  const HandleUpload = async (job, tip, photo) => {
     console.log(job, tip, photo)
+
+    // var resp = await axios.post('https://advdyn2021.herokuapp.com/createmessage'), {userjname:job, message:tip}
+    // console.log("create", resp)
   }
 
   const GetMsgs = async () => {

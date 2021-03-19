@@ -29,9 +29,9 @@ const InputCont = styled.div`
   }
 `
 const UploadForm = ({ tips, BtnText, onButton }) => {
-  const [job, setJob] = useState('jobtest')
-  const [tip, setTip] = useState('tiptest')
-  const [photo, setPhoto] = useState('phototest')
+  const [job, setJob] = useState('job')
+  const [tip, setTip] = useState('tip')
+  const [photo, setPhoto] = useState('photo')
 
   return (
     <App>
