@@ -32,11 +32,11 @@ const UploadForm = ({ tips, BtnText, onClick }) => {
   return (
     <App>
       <InputCont>
-      <Inputs
+      {/* <Inputs
         type='text'
         placeholder='Your job?'
         // height="100px"
-      />
+      /> */}
         <Inputs
           type='text'
           placeholder='Share your tips here'
@@ -44,7 +44,9 @@ const UploadForm = ({ tips, BtnText, onClick }) => {
         />
         <CustomInputs type='file'/>
       </InputCont>
-      <BottomBtn BtnText='Upload' />
+      <BottomBtn BtnText='Upload' 
+      // onClick={()=>{onSubmit()}}
+      />
     </App>
   )
 }
