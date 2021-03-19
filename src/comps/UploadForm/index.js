@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import BottomBtn from 'comps/Buttons/BottomBtn'
 import CustomInputs from 'comps/CustomInputs'
 import Inputs from 'comps/Inputs'
+import BasicBtn from 'comps/Buttons/BasicBtn'
 
 const App = styled.div`
   width: 100%;
@@ -25,7 +26,7 @@ const InputCont = styled.div`
   align-items: center;
   height: 100%;
   & > div {
-    margin: 20px 0;
+    margin: 15px 0;
   }
 `
 const UploadForm = ({ tips, BtnText, onButton }) => {
@@ -46,7 +47,7 @@ const UploadForm = ({ tips, BtnText, onButton }) => {
         <Inputs
           type='text'
           placeholder='Share your tips here'
-          height='100px'
+          height='80px'
           onChange={(e) => {
             setTip(e.target.value)
           }}
@@ -57,6 +58,7 @@ const UploadForm = ({ tips, BtnText, onButton }) => {
             setPhoto(e.target.value)
           }}
         />
+      <BasicBtn text="Preview"/>
       </InputCont>
       <BottomBtn
         BtnText='Upload'

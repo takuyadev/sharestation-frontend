@@ -7,6 +7,8 @@ color:#dad;
 const MsgCont = styled.div`
 color:#fff;
 `
+const Test = styled.div``
+const Status = styled.div``
 
 const fakedb = [
     {
@@ -18,20 +20,23 @@ const fakedb = [
 ]
 
 
-const Message = ({ msgs }) => {
+const Message = ({ msgs, desc, status, message }) => {
   return (
     <Container>
       {/* <Title>{title}</Title> */}
-      Messages
       {msgs.map(o=><MsgCont>
         {o.id} - {o.username} - {o.message} - {o.created}
       </MsgCont>)}
+      {/* <Descrip>{desc}</Descrip> */}
+      {/* <Test>{message}</Test> */}
+      <Status>Name: "{status}"</Status>
     </Container>
   )
 }
 
 Message.defaultProps = {
-    msgs:fakedb
+    msgs:fakedb,
+    desc:"desc"
 }
 
 export default Message

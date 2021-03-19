@@ -22,8 +22,10 @@ const BtnCont = styled.div`
     opacity: 1;
   }
 `
-const ImgCont = styled.div`
+const ResultCont = styled.div`
   display: flex;
+  flex-direction:column;
+  align-items:center;
   justify-content: center;
 `
 const CustomerPhoto = styled.img`
@@ -32,6 +34,7 @@ const CustomerPhoto = styled.img`
   object-fit: cover;
 `
 const HeaderCont = styled.div`
+width:60%;
   padding: 30px 0;
   margin: 0 auto 0;
   /* text-align:center; */
@@ -55,6 +58,8 @@ const PTFCont = styled.div`
 const PostPage = (expand) => {
   const [expanded, setExpanded] = useState(false)
   const [msgs, setMsgs] = useState([])
+  const [img, setImg] = useState(null);
+  const [status, setStatus] = useState(null);
 
   const HandleUpload = async (job, tip, photo) => {
     console.log(job, tip, photo)
@@ -63,10 +68,17 @@ const PostPage = (expand) => {
     // console.log("create", resp)
   }
 
+  // const GetMsgs = async () => {
+  //   var resp = await axios.get('https://advdyn2021.herokuapp.com/allmessages')
+  //   console.log("get message", resp.data[0])
+  //   setMsgs(resp.data);
+  // }
+
   const GetMsgs = async () => {
-    var resp = await axios.get('https://advdyn2021.herokuapp.com/allmessages')
-    console.log("get message", resp)
-    setMsgs(resp.data);
+    var resp = await axios.get('https://dog.ceo/api/breeds/image/random')
+    console.log(resp, "img link", resp.data.message, "status", resp.data.status)
+    setImg(resp.data.message);
+    setStatus(resp.data.status);
   }
 
   useEffect(() => {
@@ -90,8 +102,8 @@ const PostPage = (expand) => {
             state='Select photo describing your work station best'
           /> */}
           <Header
-            title='Share your Station'
-            state='Select photo and describe your work station best'
+            title='Preview'
+            state='Select a photo that describes your work station best and tell us about it'
           />
         </PhotoHead>
         <TipsHead expanded={expanded}>
@@ -99,10 +111,10 @@ const PostPage = (expand) => {
         </TipsHead>
       </HeaderCont>
 
-      <ImgCont>
-        {/* <CustomerPhoto src='images/img2.png' /> */}
-        <Message msgs={msgs} />
-      </ImgCont>
+      <ResultCont>
+        <CustomerPhoto src={img}/>
+        <Message msgs={msgs} status={status}/>
+      </ResultCont>
       <PIFCont expanded={expanded}>
         <UploadForm onButton={HandleUpload} />
         {/* <PostImgForm
