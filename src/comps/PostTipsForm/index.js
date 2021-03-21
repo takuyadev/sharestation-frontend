@@ -1,4 +1,5 @@
 import BottomBtn from 'comps/Buttons/BottomBtn'
+import Message from 'comps/Message'
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
@@ -20,6 +21,7 @@ const PostTipsForm = ({ tips, BtnText }) => {
   return (
     <App>
       <PostCont>{tips}</PostCont>
+      <Message/>
       <BottomBtn BtnText='Upload' />
     </App>
   )

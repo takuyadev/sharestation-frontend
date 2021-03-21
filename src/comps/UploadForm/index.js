@@ -29,7 +29,7 @@ const InputCont = styled.div`
     margin: 15px 0;
   }
 `
-const UploadForm = ({ tips, BtnText, onButton }) => {
+const UploadForm = ({ tips, BtnText, onButton, onUpload }) => {
   const [job, setJob] = useState('job')
   const [tip, setTip] = useState('tip')
   const [photo, setPhoto] = useState('photo')
@@ -58,7 +58,8 @@ const UploadForm = ({ tips, BtnText, onButton }) => {
             setPhoto(e.target.value)
           }}
         />
-      <BasicBtn text="Preview"/>
+        {/* <BasicBtn text="Preview" onClick={() => {
+          onUpload()}}/> */}
       </InputCont>
       <BottomBtn
         BtnText='Upload'

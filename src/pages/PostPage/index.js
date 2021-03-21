@@ -64,22 +64,24 @@ const PostPage = (expand) => {
   const HandleUpload = async (job, tip, photo) => {
     console.log(job, tip, photo)
 
-    // var resp = await axios.post('https://advdyn2021.herokuapp.com/createmessage'), {userjname:job, message:tip}
-    // console.log("create", resp)
+    var resp = await axios.post('https://advdyn2021.herokuapp.com/createmessage', {userjname:job, message:tip})
+    console.log("create", resp)
+
+    GetMsgs()
+  }
+
+  const GetMsgs = async () => {
+    var resp = await axios.get('https://advdyn2021.herokuapp.com/allmessages')
+    console.log("get message", resp.data)
+    setMsgs(resp.data);
   }
 
   // const GetMsgs = async () => {
-  //   var resp = await axios.get('https://advdyn2021.herokuapp.com/allmessages')
-  //   console.log("get message", resp.data[0])
-  //   setMsgs(resp.data);
+  //   var resp = await axios.get('https://dog.ceo/api/breeds/image/random')
+  //   console.log(resp, "img link", resp.data.message, "status", resp.data.status)
+  //   setImg(resp.data.message);
+  //   setStatus("get", resp.data.status);
   // }
-
-  const GetMsgs = async () => {
-    var resp = await axios.get('https://dog.ceo/api/breeds/image/random')
-    console.log(resp, "img link", resp.data.message, "status", resp.data.status)
-    setImg(resp.data.message);
-    setStatus(resp.data.status);
-  }
 
   useEffect(() => {
     setExpanded(expand)
