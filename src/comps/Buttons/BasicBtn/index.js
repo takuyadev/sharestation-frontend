@@ -3,11 +3,6 @@ import styled from 'styled-components'
 
 const Container = styled.div``
 const BtnCont = styled.button`
-  /* min-width: ${(props) => (props.width ? props.width : '300px')};
-  min-height: ${(props) => (props.height ? props.height : '100px')};
-  max-width: ${(props) => (props.width ? props.width : '50%')};
-  max-height: ${(props) => (props.height ? props.height : '300px')};
-  margin-right: 10px; */
   width: 314px;
   padding-right: 30px;
   height: 46px;
@@ -23,15 +18,11 @@ const BtnCont = styled.button`
     transition-duration: 0.5s;
   }
 `
-
 const IconCont = styled.img`
   width: 20px;
   margin-right: 10px;
 `
-
-const Buttons = ({
-  width,
-  height,
+const BasicBtn = ({
   icon,
   text,
   border,
@@ -39,17 +30,21 @@ const Buttons = ({
   color,
   hvcolor,
   onClick,
-  name
+  name,
 }) => {
   return (
-    <Container onClick={() => {onClick(name)}}>
+    <Container
+      onClick={() => {
+        onClick(name)
+      }}
+    >
       <BtnCont
         bgcolor={bgcolor}
         border={border}
         color={color}
         hvcolor={hvcolor}
-        width={width}
-        height={height}
+        // width={width}
+        // height={height}
       >
         <IconCont src={icon} />
         {text}
@@ -58,7 +53,7 @@ const Buttons = ({
   )
 }
 
-Buttons.defaultProps = {
+BasicBtn.defaultProps = {
   icon: null,
   text: null,
   border: null,
@@ -66,4 +61,4 @@ Buttons.defaultProps = {
   onClick: () => {},
 }
 
-export default Buttons
+export default BasicBtn

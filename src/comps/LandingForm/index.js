@@ -1,4 +1,4 @@
-import Buttons from 'comps/Buttons'
+import BasicBtn from 'comps/Buttons/BasicBtn'
 import Divider from 'comps/Divider'
 import React from 'react'
 import styled from 'styled-components'
@@ -14,8 +14,8 @@ const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 30px 0;
-  position:fixed;
-  bottom:0;
+  position: fixed;
+  bottom: 0;
 `
 const TitleCont = styled.div`
   font-size: 24px;
@@ -27,24 +27,33 @@ const TitleCont = styled.div`
   text-align: center;
 `
 
-const LandingForm = ({}) => {
+const LandingForm = ({ onLogin, onSignup }) => {
   return (
     <Container>
       <TitleCont>
         Share <br />
         Your Station
       </TitleCont>
-      <Buttons icon='icons/icon2.png' text='Continue with Facebook' />
-      <Buttons icon='icons/icon1.png' text='Continue with Email' />
+      <BasicBtn icon='icons/icon2.png' text='Continue with Facebook' />
+      <BasicBtn
+        icon='icons/icon1.png'
+        text='Continue with Email'
+        onClick={() => {
+          onLogin()
+        }}
+      />
 
       <Divider />
 
-      <Buttons
+      <BasicBtn
         text='Sign up with Email'
         border='1.5px solid #fff'
         bgcolor='transparent'
         color='#fff'
         hvcolor='#b3b3cc'
+        onClick={() => {
+          onSignup()
+        }}
       />
     </Container>
   )
