@@ -1,35 +1,37 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Container = styled.div`
-color:#dad;
+const Container = styled.div``
+const Cont = styled.div`
+  width: 200px;
+`
+const Id = styled.div`
+  color: #fad;
 `
 const MsgCont = styled.div`
-color:#fff;
+color:green;
 `
-const Test = styled.div``
-const Status = styled.div``
 
 const fakedb = [
-    {
-      id:1,
-    username:'fake',
-    message:'fake stuff',
-    created:'Dec.1st 2999'
-    }
+  {
+    id: 1,
+    //username: 'name',
+    message: 'fake msg',
+    //  created: 'dec.1st 2000',
+  },
 ]
 
 
-const Message = ({ msgs, desc, status, message }) => {
+const Message = ({ msgs, desc, status, imgurl }) => {
   return (
     <Container>
-      {/* <Title>{title}</Title> */}
-      {msgs.map(o=><MsgCont>
-        {o.id} - {o.username} - {o.message} - {o.created}
-      </MsgCont>)}
-      {/* <Descrip>{desc}</Descrip> */}
-      {/* <Test>{message}</Test> */}
-      <Status>Name: "{status}"</Status>
+      {msgs.map((o) => (
+        <Cont>
+          {/* <Id>{o.id} </Id> <MsgCont>{o.message} </MsgCont> */}
+          <Id>{desc}</Id> <img src={imgurl}/> <MsgCont>{status} </MsgCont>
+
+        </Cont>
+      ))}
     </Container>
   )
 }
