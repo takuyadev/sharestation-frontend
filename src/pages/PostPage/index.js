@@ -24,8 +24,8 @@ const BtnCont = styled.div`
 `
 const ResultCont = styled.div`
   display: flex;
-  flex-direction:column;
-  align-items:center;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 `
 const CustomerPhoto = styled.img`
@@ -34,15 +34,17 @@ const CustomerPhoto = styled.img`
   object-fit: cover;
 `
 const HeaderCont = styled.div`
-width:60%;
+  width: 70%;
   padding: 30px 0;
   margin: 0 auto 0;
+  display: flex;
   /* text-align:center; */
   /* display:flex;
   align-items:center;
   justify-items:center; */
 `
 const PhotoHead = styled.div`
+  margin: auto;
   display: ${(props) => (props.expanded ? 'flex' : 'none')};
 `
 const TipsHead = styled.div`
@@ -64,24 +66,22 @@ const PostPage = (expand) => {
   const HandleUpload = async (job, tip, photo) => {
     console.log(job, tip, photo)
 
-    var resp = await axios.post('https://advdyn2021.herokuapp.com/createmessage', {userjname:job, message:tip})
-    console.log("create", resp)
-
-    GetMsgs()
-  }
-
-  const GetMsgs = async () => {
-    var resp = await axios.get('https://advdyn2021.herokuapp.com/allmessages')
-    console.log("get message", resp.data)
-    setMsgs(resp.data);
+    // var resp = await axios.post('https://advdyn2021.herokuapp.com/createmessage'), {userjname:job, message:tip}
+    // console.log("create", resp)
   }
 
   // const GetMsgs = async () => {
-  //   var resp = await axios.get('https://dog.ceo/api/breeds/image/random')
-  //   console.log(resp, "img link", resp.data.message, "status", resp.data.status)
-  //   setImg(resp.data.message);
-  //   setStatus("get", resp.data.status);
+  //   var resp = await axios.get('https://advdyn2021.herokuapp.com/allmessages')
+  //   console.log("get message", resp.data[0])
+  //   setMsgs(resp.data);
   // }
+
+  const GetMsgs = async () => {
+    var resp = await axios.get('https://dog.ceo/api/breeds/image/random')
+    console.log(resp, "img link", resp.data.message, "status", resp.data.status)
+    setImg(resp.data.message);
+    setStatus(resp.data.status);
+  }
 
   useEffect(() => {
     setExpanded(expand)
@@ -91,6 +91,7 @@ const PostPage = (expand) => {
     GetMsgs()
   }, [])
 
+
   return (
     <Container>
       <BtnCont>
@@ -99,25 +100,29 @@ const PostPage = (expand) => {
 
       <HeaderCont>
         <PhotoHead expanded={expanded}>
-          {/* <Header
+          <Header
             title='Photos'
             state='Select photo describing your work station best'
-          /> */}
-          <Header
+          />
+          {/* <Header
             title='Preview'
             state='Select a photo that describes your work station best and tell us about it'
-          />
+          /> */}
         </PhotoHead>
-        <TipsHead expanded={expanded}>
+        {/* <TipsHead expanded={expanded}>
           <Header title='Tips' state='Add tips to your selected photo' />
-        </TipsHead>
+        </TipsHead> */}
       </HeaderCont>
 
       <ResultCont>
         <CustomerPhoto src={img}/>
         <Message msgs={msgs} status={status}/>
       </ResultCont>
-      <PIFCont expanded={expanded}>
+
+      
+      <PIFCont 
+      expanded={expanded}
+      >
         <UploadForm onButton={HandleUpload} />
         {/* <PostImgForm
           onBtnClick={() => {

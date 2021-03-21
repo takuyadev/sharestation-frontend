@@ -30,8 +30,8 @@ const InputCont = styled.div`
   }
 `
 const UploadForm = ({ tips, BtnText, onButton, onUpload }) => {
-  const [job, setJob] = useState('job')
-  const [tip, setTip] = useState('tip')
+  const [title, setTitle] = useState('job')
+  const [desc, setDesc] = useState('tip')
   const [photo, setPhoto] = useState('photo')
 
   return (
@@ -41,7 +41,7 @@ const UploadForm = ({ tips, BtnText, onButton, onUpload }) => {
           type='text'
           placeholder='Your job?'
           onChange={(e) => {
-            setJob(e.target.value)
+            setTitle(e.target.value)
           }}
         />
         <Inputs
@@ -49,7 +49,7 @@ const UploadForm = ({ tips, BtnText, onButton, onUpload }) => {
           placeholder='Share your tips here'
           height='80px'
           onChange={(e) => {
-            setTip(e.target.value)
+            setDesc(e.target.value)
           }}
         />
         <CustomInputs
@@ -64,7 +64,7 @@ const UploadForm = ({ tips, BtnText, onButton, onUpload }) => {
       <BottomBtn
         BtnText='Upload'
         onClick={() => {
-          onButton(job, tip, photo)
+          onButton(title, desc, photo)
         }}
       />
     </App>

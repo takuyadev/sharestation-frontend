@@ -22,12 +22,14 @@ const fakedb = [
 ]
 
 
-const Message = ({ msgs, desc, status, message }) => {
+const Message = ({ msgs, desc, status, imgurl }) => {
   return (
     <Container>
       {msgs.map((o) => (
         <Cont>
-          <Id>{o.id} </Id> <MsgCont>{o.message} </MsgCont>
+          {/* <Id>{o.id} </Id> <MsgCont>{o.message} </MsgCont> */}
+          <Id>{desc}</Id> <img src={imgurl}/> <MsgCont>{status} </MsgCont>
+
         </Cont>
       ))}
     </Container>
@@ -40,8 +42,3 @@ Message.defaultProps = {
 }
 
 export default Message
-
-
-
-   //     {o.id} - {o.username} - {o.message} - {o.created}
-    
