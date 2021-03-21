@@ -11,6 +11,7 @@ const Test = styled.input`
   background-color: transparent;
   color: #fff;
   font-size: 17px;
+
   ::placeholder {
     color: #ffff;
     font-size: 15px;

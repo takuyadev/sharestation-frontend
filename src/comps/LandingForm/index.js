@@ -59,6 +59,8 @@ const LandingForm = ({ onLogin, onSignup }) => {
   )
 }
 
-LandingForm.defaultProps = {}
+LandingForm.defaultProps = {
+ 
+}
 
 export default LandingForm
