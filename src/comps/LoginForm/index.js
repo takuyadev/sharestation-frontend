@@ -39,7 +39,6 @@ const LoginForm = ({ display, onBtnClick, name }) => {
         password: password,
       }
     )
-
     console.log('identifier/token', resp2.data)
   }
 

@@ -14,7 +14,6 @@ const Container = styled.div`
   padding: 30px 0;
   ${(props) => props.display && 'display:' + props.display + ';'}
 `
-
 const InputCont = styled.div`
   & > div {
     margin: 30px 0;
@@ -30,7 +29,7 @@ const BtnCont = styled.div`
 const SignupForm = ({ display, onBtnClick, name }) => {
   const [email, setEmail] = useState('')
   const [pass, setPass] = useState('')
-  const [fullname, setFullname] = useState('')
+  // const [fullname, setFullname] = useState('')
 
   return (
     <Container display={display}>
@@ -49,13 +48,13 @@ const SignupForm = ({ display, onBtnClick, name }) => {
             setPass(e.target.value)
           }}
         />
-        <Inputs
+        {/* <Inputs
           type='test'
           placeholder='Full Name'
           onChange={(e) => {
             setFullname(e.target.value)
           }}
-        />
+        /> */}
       </InputCont>
       <BtnCont>
         <BasicBtn
@@ -64,7 +63,7 @@ const SignupForm = ({ display, onBtnClick, name }) => {
           color='#fff'
           hvcolor='#5200cc'
           onClick={() => {
-            onBtnClick(name, email, pass, fullname)
+            onBtnClick(name, email, pass)
           }}
         />
         <Divider />
