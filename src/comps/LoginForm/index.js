@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Divider from 'comps/Divider'
 import Inputs from 'comps/Inputs'
 import BasicBtn from 'comps/Buttons/BasicBtn'
+import axios from 'axios'
 
 const Container = styled.div`
   width: 100%;
@@ -29,7 +30,22 @@ const BtnCont = styled.div`
 
 const LoginForm = ({ display, onBtnClick, name }) => {
   const [email, setEmail] = useState('')
-  const [pass, setPass] = useState('')
+  const [password, setPassword] = useState('')
+  
+  const Auth = async () => {
+    var resp2 = await axios.post('https://sharestation.herokuapp.com/api/login', {
+      email:email,
+      password:password
+    })
+
+    console.log("identifier/token", resp2.data)
+  }
+
+
+    useEffect(() => {
+
+    }, [])
+  
 
   return (
     <Container display={display}>
@@ -45,7 +61,7 @@ const LoginForm = ({ display, onBtnClick, name }) => {
           type='password'
           placeholder='Password'
           onChange={(e) => {
-            setPass(e.target.value)
+            setPassword(e.target.value)
           }}
         />
       </InputCont>
@@ -55,9 +71,10 @@ const LoginForm = ({ display, onBtnClick, name }) => {
           bgcolor='#6524FF'
           color='#fff'
           hvcolor='#5200cc'
-          onClick={() => {
-            onBtnClick(name, email, pass)
-          }}
+          onClick={Auth}
+          // onClick={() => {
+          //   onBtnClick(name, email, pass)
+          // }}
         />
         <Divider />
         <BasicBtn icon='icons/icon2.png' text='Continue with Facebook' />
