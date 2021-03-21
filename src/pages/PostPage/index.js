@@ -39,10 +39,6 @@ const HeaderCont = styled.div`
   padding: 30px 0;
   margin: 0 auto 0;
   display: flex;
-  /* text-align:center; */
-  /* display:flex;
-  align-items:center;
-  justify-items:center; */
 `
 const PhotoHead = styled.div`
   margin: auto;

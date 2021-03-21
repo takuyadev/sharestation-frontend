@@ -76,11 +76,11 @@ const TipsForm = ({ id, liked, text, icon, name, expand }) => {
   return (
     <App>
       <CcBtnCont>
-        <Link to='/MainPage'>
+        {/* <Link to='/MainPage'>
           <CircleBtn icon='' btnname='loginBtn' />
-        </Link>
+        </Link> */}
         <CircleBtn icon='icons/icon3.png' btnname='nextBtn' />
-        {/* <CircleBtn icon='icons/icon4.png' btnname='heartBtn' /> */}
+        <CircleBtn icon='icons/icon4.png' btnname='heartBtn' />
         <Link to='/PostPage'>
           <CircleBtn icon='icons/icon5.png' btnname='addBtn' />
         </Link>
