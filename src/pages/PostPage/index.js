@@ -120,8 +120,8 @@ const PostPage = (expand) => {
       <HeaderCont>
         <PhotoHead expanded={expanded}>
           <Header
-            title='Photos'
-            state='Select photo describing your work station best'
+            title='Upload'
+            state='Share your own work station'
           />
           {/* <Header
             title='Preview'

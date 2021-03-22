@@ -37,25 +37,18 @@ const UploadForm = ({ tips, BtnText, onButton, onUpload }) => {
   return (
     <App>
       <InputCont>
-        <Inputs
-          type='text'
-          placeholder='Your job?'
-          onChange={(e) => {
-            setTitle(e.target.value)
-          }}
-        />
-        <Inputs
-          type='text'
-          placeholder='Share your tips here'
-          height='80px'
-          onChange={(e) => {
-            setDesc(e.target.value)
-          }}
-        />
         <CustomInputs
           type='file'
           onChange={(e) => {
             setPhoto(e.target.value)
+          }}
+        />
+        <Inputs
+          type='text'
+          placeholder='Write your tips here'
+          height='100px'
+          onChange={(e) => {
+            setDesc(e.target.value)
           }}
         />
         {/* <BasicBtn text="Preview" onClick={() => {
@@ -64,7 +57,7 @@ const UploadForm = ({ tips, BtnText, onButton, onUpload }) => {
       <BottomBtn
         BtnText='Upload'
         onClick={() => {
-          onButton(title, desc, photo)
+          onButton(desc, photo)
         }}
       />
     </App>
@@ -73,8 +66,8 @@ const UploadForm = ({ tips, BtnText, onButton, onUpload }) => {
 
 UploadForm.defaultProps = {
   tips: null,
-  text:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+  // text:
+  //   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
   onButton: () => {},
 }
 
