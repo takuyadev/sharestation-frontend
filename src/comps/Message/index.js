@@ -7,26 +7,24 @@ const Cont = styled.div`
 `
 const Desc = styled.div`
   color: #fad;
+  font-weight: bold;
+  font-size: 25px;
 `
 
 const fakedb = [
   {
-    id: 1,
-    //username: 'name',
-    message: 'fake msg',
-    //  created: 'dec.1st 2000',
+    imgurl: 'fake msg',
+    desc: 1,
   },
 ]
-
 
 const Message = ({ msgs, desc, imgurl }) => {
   return (
     <Container>
       {msgs.map((o) => (
         <Cont>
-          {/* <Id>{o.id} </Id> <MsgCont>{o.message} </MsgCont> */}
-          <Desc>{desc}</Desc> <img src={imgurl}/> 
-
+           <img src={o.imgurl} /><Desc>{o.desc} </Desc>
+          {/* <Desc>{desc}</Desc> <img src={imgurl}/>  */}
         </Cont>
       ))}
     </Container>
@@ -34,8 +32,7 @@ const Message = ({ msgs, desc, imgurl }) => {
 }
 
 Message.defaultProps = {
-    msgs:fakedb,
-    desc:"desc"
+  msgs: fakedb,
 }
 
 export default Message

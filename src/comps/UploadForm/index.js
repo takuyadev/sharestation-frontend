@@ -30,9 +30,9 @@ const InputCont = styled.div`
   }
 `
 const UploadForm = ({ tips, BtnText, onButton, onUpload }) => {
-  const [title, setTitle] = useState('job')
-  const [desc, setDesc] = useState('tip')
-  const [photo, setPhoto] = useState('photo')
+  // const [title, setTitle] = useState('job')
+  const [desc, setDesc] = useState('desc')
+  const [imgurl, setImgurl] = useState('img')
 
   return (
     <App>
@@ -40,7 +40,7 @@ const UploadForm = ({ tips, BtnText, onButton, onUpload }) => {
         <CustomInputs
           type='file'
           onChange={(e) => {
-            setPhoto(e.target.value)
+            setImgurl(e.target.value)
           }}
         />
         <Inputs
@@ -57,7 +57,7 @@ const UploadForm = ({ tips, BtnText, onButton, onUpload }) => {
       <BottomBtn
         BtnText='Upload'
         onClick={() => {
-          onButton(desc, photo)
+          onButton(imgurl, desc)
         }}
       />
     </App>

@@ -60,8 +60,8 @@ const PostPage = (expand) => {
   const history = useHistory();
   const [expanded, setExpanded] = useState(false)
   const [msgs, setMsgs] = useState([])
-  const [img, setImg] = useState(null)
-  const [status, setStatus] = useState(null)
+  const [imgurl, setImgurl] = useState(null)
+  const [desc, setDesc] = useState(null)
 
   const CheckStorage = async () => {
     var token = await sessionStorage.getItem('token')
@@ -94,10 +94,13 @@ const PostPage = (expand) => {
   // }
 
   const GetMsgs = async () => {
-    var resp = await axios.get('https://dog.ceo/api/breeds/image/random')
-    console.log(resp, 'img link', resp.data.message, 'status', resp.data.status)
-    setImg(resp.data.message)
-    setStatus(resp.data.status)
+    var resp = await axios.get('https://advdyn2021.herokuapp.com/allmessages')
+    // console.log(resp, 'img link', resp.data.message, 'status', resp.data.status)
+    console.log(resp)
+    // setImgurl(resp.data.message)
+    // setDesc(resp.data.status)
+    setMsgs(resp.data);
+    
   }
 
   useEffect(() => {
@@ -105,8 +108,8 @@ const PostPage = (expand) => {
   }, [expand])
 
   useEffect(() => {
-    // GetMsgs()
-    CheckStorage()
+    GetMsgs()
+    // CheckStorage()
   }, [])
 
   return (
@@ -134,8 +137,11 @@ const PostPage = (expand) => {
       </HeaderCont>
 
       <ResultCont>
-        <CustomerPhoto src={img} />
-        <Message msgs={msgs} status={status} />
+        {/* <CustomerPhoto src={img} /> */}
+        <Message 
+        // desc={desc} imgurl={imgurl} 
+        msgs={msgs}
+        />
       </ResultCont>
 
       <PIFCont expanded={expanded}>
