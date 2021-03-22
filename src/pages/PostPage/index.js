@@ -92,7 +92,7 @@ const PostPage = (expand) => {
     var resp = await axios.post(
       'https://sharestation.herokuapp.com/api/images',{ image: file })
       //photo_url will use the resp.data link if its there
-      console.log(resp.data)
+      console.log("create", resp.data)
       
 
 
@@ -108,7 +108,7 @@ const PostPage = (expand) => {
    }
 
   const GetMsgs = async () => {
-    var resp = await axios.get('https://sharestation.herokuapp.com/api/images')
+    var resp = await axios.get('https://sharestation.herokuapp.com/api/posts')
     // console.log(resp, 'img link', resp.data.message, 'status', resp.data.status)
     console.log('get file', resp)
     // setImgurl(resp.data.message)
