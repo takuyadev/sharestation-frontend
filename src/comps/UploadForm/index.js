@@ -32,17 +32,18 @@ const InputCont = styled.div`
 const UploadForm = ({ tips, BtnText, onButton, onUpload, onChange }) => {
   // const [title, setTitle] = useState('job')
   const [desc, setDesc] = useState('desc')
-  const [imgurl, setImgurl] = useState('img')
+  const [file, setFile] = useState(null)
 
   return (
     <App>
       <InputCont>
         <CustomInputs
           type='file'
+          accept="image/*"
           onChange={(e) => {
-            setImgurl(e.target.value)
+            setFile(e.target.files[0])
             console.log(e.target.files[0]);
-            onChange(e.target.value);
+            //onChange(e.target.value);
           }}
         />
         <Inputs
@@ -59,7 +60,7 @@ const UploadForm = ({ tips, BtnText, onButton, onUpload, onChange }) => {
       <BottomBtn
         BtnText='Upload'
         onClick={() => {
-          onButton(imgurl, desc)
+          onButton(file, desc)
         }}
       />
     </App>

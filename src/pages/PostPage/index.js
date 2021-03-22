@@ -60,7 +60,8 @@ const PostPage = (expand) => {
   const history = useHistory()
   const [expanded, setExpanded] = useState(true)
   const [msgs, setMsgs] = useState([])
-  const [imgurl, setImgurl] = useState(null)
+  const [file, setFile] = useState(null)
+  // const [imgurl, setImgurl] = useState(null)
   const [desc, setDesc] = useState(null)
 
   const CheckStorage = async () => {
@@ -88,21 +89,28 @@ const PostPage = (expand) => {
     //var imgurl = resp.data.pathname
 
     //console.log(imgurl)
-    return false;
     var resp = await axios.post(
-      'https://sharestation.herokuapp.com/api/posts',
-      { photo_url: imgurl, description: desc }
+      'https://sharestation.herokuapp.com/api/images',{ image: file })
       //photo_url will use the resp.data link if its there
-    )
-    console.log('create', resp)
+      console.log(resp.data)
+      
 
-    GetMsgs()
-  }
+
+    return false;
+    // var resp = await axios.post(
+    //   'https://sharestation.herokuapp.com/api/posts',
+    //   { photo_url: file, description: desc }
+    //   //photo_url will use the resp.data link if its there
+    // )
+    // console.log('create', resp)
+
+    // GetMsgs()
+   }
 
   const GetMsgs = async () => {
-    var resp = await axios.get('https://sharestation.herokuapp.com/api/posts')
+    var resp = await axios.get('https://sharestation.herokuapp.com/api/images')
     // console.log(resp, 'img link', resp.data.message, 'status', resp.data.status)
-    console.log('get message', resp)
+    console.log('get file', resp)
     // setImgurl(resp.data.message)
     // setDesc(resp.data.status)
     setMsgs(resp.data)
@@ -141,10 +149,10 @@ const PostPage = (expand) => {
 
       <ResultCont>
          {/* <CustomerPhoto src={img} /> */}
-        {/* <Message
+        <Message
           // desc={desc} imgurl={imgurl}
           msgs={msgs}
-        /> */}
+        />
       </ResultCont>
 
       <PIFCont expanded={expanded}>
