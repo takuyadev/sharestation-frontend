@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import AppBackImage from 'comps/AppBackImage'
 import TipsForm from 'comps/TipsForm'
 import SmallBtn from 'comps/Buttons/SmallBtn'
+import { Link } from 'react-router-dom'
 
 const Container = styled.div`
   width: 100%;
@@ -22,9 +23,14 @@ const FeedPage = ({}) => {
   return (
     <Container>
       <AppBackImage src='images/img2.png' />
-      <BtnCont>
+
+      <Link to='/MainPage'>
+        <BtnCont>
         <SmallBtn icon='icons/icon8.png' />
-      </BtnCont>
+        </BtnCont>
+      </Link>
+
+
       <TipsForm />
     </Container>
   )

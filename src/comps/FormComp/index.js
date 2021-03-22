@@ -48,10 +48,10 @@ const FormComp = ({ tab }) => {
     // alert('Signup Tab dd' + name)
     setClickTab(name)
   }
-  const HandleBtnClick = (name, email, pass, fullname) => {
+  const HandleBtnClick = (name, email, password, fullname) => {
     // alert('test btn click' + name)
     // setClickLoginTab(name);
-    console.log(email, pass, fullname)
+    console.log(email, password, fullname)
   }
 
   return (
@@ -72,7 +72,7 @@ const FormComp = ({ tab }) => {
           border={clickTab === 'Login' ? '4px solid #ff3e33' : 'none'}
         />
       </TabCont>
-      <Link to='/MainPage'>
+      <Link to='/'>
         <BtnCont>
           <SmallBtn icon='icons/icon9.png' />
         </BtnCont>

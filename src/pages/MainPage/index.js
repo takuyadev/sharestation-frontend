@@ -42,7 +42,7 @@ const MainPage = (expand) => {
       <AppBackImage src='images/img1.png' 
       // style={{ zIndex: 0 }}
        />
-      <Link to='/'>
+      <Link to='/FeedPage'>
         <BtnCont>
           <SmallBtn icon='icons/icon9.png' />
         </BtnCont>
