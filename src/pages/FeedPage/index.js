@@ -43,7 +43,7 @@ const FeedPage = ({}) => {
     <Container>
       <AppBackImage src={img} />
 
-      <Link to='/MainPage'>
+      <Link to='/'>
         <BtnCont>
           <SmallBtn icon='icons/icon8.png' />
         </BtnCont>

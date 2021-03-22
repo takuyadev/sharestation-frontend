@@ -35,20 +35,20 @@ const LoginForm = ({ display, onBtnClick, name }) => {
   const [password, setPassword] = useState('')
   const [showlogin, setShow] = useState(true)
 
-  const CheckStorage = async () => {
-    var token = await sessionStorage.getItem('token')
-    if (token) {
-      axios.defaults.headers.common['Authorization'] = token
-      var resp = await axios.get(
-        'https://sharestation.herokuapp.com/api/verify'
-      )
-      console.log('verification', resp.data)
-      if (resp.data !== 'expired') {
-        // setShow(false)
-        history.push("/FeedPage");
-      }
-    }
-  }
+  // const CheckStorage = async () => {
+  //   var token = await sessionStorage.getItem('token')
+  //   if (token) {
+  //     axios.defaults.headers.common['Authorization'] = token
+  //     var resp = await axios.get(
+  //       'https://sharestation.herokuapp.com/api/verify'
+  //     )
+  //     console.log('verification', resp.data)
+  //     if (resp.data !== 'expired') {
+  //       // setShow(false)
+  //       history.push('/FeedPage')
+  //     }
+  //   }
+  // }
 
   const Auth = async () => {
     var resp2 = await axios.post(
@@ -62,6 +62,8 @@ const LoginForm = ({ display, onBtnClick, name }) => {
     axios.defaults.headers.common['Authorization'] = resp2.data
     sessionStorage.setItem('token', resp2.data)
     setShow(false)
+
+    history.push('/FeedPage')
 
     console.log('identifier/token', resp2.data.accessToken)
   }
@@ -82,7 +84,7 @@ const LoginForm = ({ display, onBtnClick, name }) => {
 
   return (
     <Container display={display}>
-      {showlogin && 
+      {showlogin && (
         <>
           <InputCont>
             <Inputs
@@ -112,18 +114,18 @@ const LoginForm = ({ display, onBtnClick, name }) => {
               //   onBtnClick(name, email, password)
               // }}
             />
-            <BasicBtn
+            {/* <BasicBtn
               text='Restricted'
               bgcolor='#6524FF'
               color='#fff'
               hvcolor='#5200cc'
               onClick={Restricted}
-            />
+            /> */}
             <Divider />
             <BasicBtn icon='icons/icon2.png' text='Continue with Facebook' />
           </BtnCont>
         </>
-      }
+      )}
     </Container>
   )
 }

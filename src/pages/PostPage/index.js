@@ -8,7 +8,7 @@ import PostImgForm from 'comps/PostImgForm'
 import Message from 'comps/Message'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import {useParams, useHistory} from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 
 const Container = styled.div`
   width: 100%;
@@ -56,9 +56,9 @@ const PTFCont = styled.div`
 `
 
 const PostPage = (expand) => {
-  const params = useParams();
-  const history = useHistory();
-  const [expanded, setExpanded] = useState(false)
+  const params = useParams()
+  const history = useHistory()
+  const [expanded, setExpanded] = useState(true)
   const [msgs, setMsgs] = useState([])
   const [imgurl, setImgurl] = useState(null)
   const [desc, setDesc] = useState(null)
@@ -73,38 +73,43 @@ const PostPage = (expand) => {
       console.log('verification', resp.data)
       if (resp.data === 'expired') {
         // setShow(false)
-        history.push("/FeedPage");
+        history.push('/FeedPage')
       } else {
-        GetMsgs();
+        GetMsgs()
       }
     }
   }
 
-  const HandleUpload = async (job, tip, photo) => {
-    console.log(job, tip, photo)
+  const HandleUpload = async (file, desc, photo, msg) => {
+    console.log(file, desc, photo, msg)
+    //var resp = axios post to upload images with /api/images
+    //{image:file}
+    //console.log(resp.data) to see if there is a linke for the uploaded image
+    //var imgurl = resp.data.pathname
 
-    // var resp = await axios.post('https://advdyn2021.herokuapp.com/createmessage'), {userjname:job, message:tip}
-    // console.log("create", resp)
+    //console.log(imgurl)
+    return false;
+    var resp = await axios.post(
+      'https://sharestation.herokuapp.com/api/posts',
+      { photo_url: imgurl, description: desc }
+      //photo_url will use the resp.data link if its there
+    )
+    console.log('create', resp)
+
+    GetMsgs()
   }
 
-  // const GetMsgs = async () => {
-  //   var resp = await axios.get('https://advdyn2021.herokuapp.com/allmessages')
-  //   console.log("get message", resp.data[0])
-  //   setMsgs(resp.data);
-  // }
-
   const GetMsgs = async () => {
-    var resp = await axios.get('https://advdyn2021.herokuapp.com/allmessages')
+    var resp = await axios.get('https://sharestation.herokuapp.com/api/posts')
     // console.log(resp, 'img link', resp.data.message, 'status', resp.data.status)
-    console.log(resp)
+    console.log('get message', resp)
     // setImgurl(resp.data.message)
     // setDesc(resp.data.status)
-    setMsgs(resp.data);
-    
+    setMsgs(resp.data)
   }
 
   useEffect(() => {
-    setExpanded(expand)
+    //setExpanded(expand)
   }, [expand])
 
   useEffect(() => {
@@ -122,10 +127,7 @@ const PostPage = (expand) => {
 
       <HeaderCont>
         <PhotoHead expanded={expanded}>
-          <Header
-            title='Upload'
-            state='Share your own work station'
-          />
+          <Header title='Upload' state='Share your own work station' />
           {/* <Header
             title='Preview'
             state='Select a photo that describes your work station best and tell us about it'
@@ -135,13 +137,14 @@ const PostPage = (expand) => {
           <Header title='Tips' state='Add tips to your selected photo' />
         </TipsHead> */}
       </HeaderCont>
+      <Message />
 
       <ResultCont>
-        {/* <CustomerPhoto src={img} /> */}
-        <Message 
-        // desc={desc} imgurl={imgurl} 
-        msgs={msgs}
-        />
+         {/* <CustomerPhoto src={img} /> */}
+        {/* <Message
+          // desc={desc} imgurl={imgurl}
+          msgs={msgs}
+        /> */}
       </ResultCont>
 
       <PIFCont expanded={expanded}>

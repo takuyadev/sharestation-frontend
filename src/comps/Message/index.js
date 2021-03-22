@@ -13,8 +13,8 @@ const Desc = styled.div`
 
 const fakedb = [
   {
-    imgurl: 'fake msg',
-    desc: 1,
+    photo_url: 'fake msg',
+    description: 1,
   },
 ]
 
@@ -23,7 +23,7 @@ const Message = ({ msgs, desc, imgurl }) => {
     <Container>
       {msgs.map((o) => (
         <Cont>
-           <img src={o.imgurl} /><Desc>{o.desc} </Desc>
+           <img src={o.photo_url} /><Desc>{o.description} </Desc>
           {/* <Desc>{desc}</Desc> <img src={imgurl}/>  */}
         </Cont>
       ))}
