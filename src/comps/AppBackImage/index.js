@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div``
-const Test = styled.img`
+const Img = styled.img`
   width: 100%;
   height: auto;
   object-fit: fill;
@@ -14,7 +14,7 @@ const Test = styled.img`
 const AppBackImage = ({ src }) => {
   return (
     <Container>
-      <Test src={src} />
+      <Img src={src} />
     </Container>
   )
 }

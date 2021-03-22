@@ -5,11 +5,8 @@ const Container = styled.div``
 const Cont = styled.div`
   width: 200px;
 `
-const Id = styled.div`
+const Desc = styled.div`
   color: #fad;
-`
-const MsgCont = styled.div`
-color:green;
 `
 
 const fakedb = [
@@ -22,13 +19,13 @@ const fakedb = [
 ]
 
 
-const Message = ({ msgs, desc, status, imgurl }) => {
+const Message = ({ msgs, desc, imgurl }) => {
   return (
     <Container>
       {msgs.map((o) => (
         <Cont>
           {/* <Id>{o.id} </Id> <MsgCont>{o.message} </MsgCont> */}
-          <Id>{desc}</Id> <img src={imgurl}/> <MsgCont>{status} </MsgCont>
+          <Desc>{desc}</Desc> <img src={imgurl}/> 
 
         </Cont>
       ))}
