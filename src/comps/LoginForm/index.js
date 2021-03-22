@@ -27,6 +27,7 @@ const BtnCont = styled.div`
   justify-content: space-between;
 `
 
+//const token = null;
 const LoginForm = ({ display, onBtnClick, name }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -37,9 +38,20 @@ const LoginForm = ({ display, onBtnClick, name }) => {
       {
         email: email,
         password: password,
-      }
-    )
+      });
+
+    //token = resp2.data;
+    axios.defaults.headers.common['Authorization'] = resp2.data;
+    sessionStorage.setItem('token', resp2.data);
+
     console.log('identifier/token', resp2.data)
+  }
+
+  const Restricted = async() => {
+    var resp = await axios.post('https://sharestation.herokuapp.com/api/login', {
+    itemname:"item 1"
+    })
+    console.log('restricted', resp.data)
   }
 
   useEffect(() => {}, [])
@@ -56,7 +68,6 @@ const LoginForm = ({ display, onBtnClick, name }) => {
         />
         <Inputs
           type='password'
-          Í
           placeholder='Password'
           onChange={(e) => {
             setPassword(e.target.value)
@@ -70,9 +81,13 @@ const LoginForm = ({ display, onBtnClick, name }) => {
           color='#fff'
           hvcolor='#5200cc'
           onClick={Auth}
-          // onClick={() => {
-          //   onBtnClick(name, email, pass)
-          // }}
+        />
+        <BasicBtn
+          text='Restricted'
+          bgcolor='#6524FF'
+          color='#fff'
+          hvcolor='#5200cc'
+          onClick={Restricted}
         />
         <Divider />
         <BasicBtn icon='icons/icon2.png' text='Continue with Facebook' />

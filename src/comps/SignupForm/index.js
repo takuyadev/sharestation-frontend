@@ -28,7 +28,7 @@ const BtnCont = styled.div`
 
 const SignupForm = ({ display, onBtnClick, name }) => {
   const [email, setEmail] = useState('')
-  const [pass, setPass] = useState('')
+  const [password, setPassword] = useState('')
   // const [fullname, setFullname] = useState('')
 
   return (
@@ -45,7 +45,7 @@ const SignupForm = ({ display, onBtnClick, name }) => {
           type='password'
           placeholder='Password'
           onChange={(e) => {
-            setPass(e.target.value)
+            setPassword(e.target.value)
           }}
         />
         {/* <Inputs
@@ -62,9 +62,9 @@ const SignupForm = ({ display, onBtnClick, name }) => {
           bgcolor='#6524FF'
           color='#fff'
           hvcolor='#5200cc'
-          onClick={() => {
-            onBtnClick(name, email, pass)
-          }}
+          // onClick={() => {
+          //   onBtnClick(name, email, pass)
+          // }}
         />
         <Divider />
         <BasicBtn icon='icons/icon2.png' text='Continue with Facebook' />
