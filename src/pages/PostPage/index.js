@@ -8,6 +8,7 @@ import PostImgForm from 'comps/PostImgForm'
 import Message from 'comps/Message'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import {useParams, useHistory} from 'react-router-dom'
 
 const Container = styled.div`
   width: 100%;
@@ -55,10 +56,29 @@ const PTFCont = styled.div`
 `
 
 const PostPage = (expand) => {
+  const params = useParams();
+  const history = useHistory();
   const [expanded, setExpanded] = useState(false)
   const [msgs, setMsgs] = useState([])
   const [img, setImg] = useState(null)
   const [status, setStatus] = useState(null)
+
+  const CheckStorage = async () => {
+    var token = await sessionStorage.getItem('token')
+    if (token) {
+      axios.defaults.headers.common['Authorization'] = token
+      var resp = await axios.get(
+        'https://sharestation.herokuapp.com/api/verify'
+      )
+      console.log('verification', resp.data)
+      if (resp.data === 'expired') {
+        // setShow(false)
+        history.push("/FeedPage");
+      } else {
+        GetMsgs();
+      }
+    }
+  }
 
   const HandleUpload = async (job, tip, photo) => {
     console.log(job, tip, photo)
@@ -85,12 +105,13 @@ const PostPage = (expand) => {
   }, [expand])
 
   useEffect(() => {
-    GetMsgs()
+    // GetMsgs()
+    CheckStorage()
   }, [])
 
   return (
     <Container>
-      <Link to='/'>
+      <Link to='/FeedPage'>
         <BtnCont>
           <SmallBtn icon='icons/icon9.png' />
         </BtnCont>

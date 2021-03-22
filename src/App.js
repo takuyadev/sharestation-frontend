@@ -13,8 +13,8 @@ function App() {
 
       <Router>
         <Switch>
-          <Route path='/MainPage' exact component={MainPage} />
-          <Route path='/' exact component={FeedPage} />
+          <Route path='/' exact component={MainPage} />
+          <Route path='/FeedPage' exact component={FeedPage} />
           {/* <Route path="/FeedPage" component={FeedPage}/> */}
           <Route path='/PostPage' component={PostPage} />
         </Switch>

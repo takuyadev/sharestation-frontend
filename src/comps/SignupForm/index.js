@@ -62,9 +62,9 @@ const SignupForm = ({ display, onBtnClick, name }) => {
           bgcolor='#6524FF'
           color='#fff'
           hvcolor='#5200cc'
-          // onClick={() => {
-          //   onBtnClick(name, email, pass)
-          // }}
+          onClick={() => {
+            onBtnClick(name, email, password)
+          }}
         />
         <Divider />
         <BasicBtn icon='icons/icon2.png' text='Continue with Facebook' />
