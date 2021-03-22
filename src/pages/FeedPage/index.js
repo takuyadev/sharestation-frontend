@@ -11,6 +11,10 @@ const Container = styled.div`
   height: 896px;
   display: flex;
   flex-direction: column;
+  /* background-image:url(images/img2.png);
+  background-size:cover;
+  z-index: 1; */
+  background-color:#111;
 `
 const BtnCont = styled.div`
   margin: 40px 0 0 20px;
@@ -38,7 +42,6 @@ const FeedPage = ({}) => {
   return (
     <Container>
       <AppBackImage src={img} />
-      {/* <AppBackImage src='images/img2.png' /> */}
 
       <Link to='/MainPage'>
         <BtnCont>

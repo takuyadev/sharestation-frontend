@@ -1,14 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Container = styled.div``
+const Container = styled.div`
+background-color:#999;
+`
 const Img = styled.img`
   width: 100%;
   height: auto;
   object-fit: fill;
   position: fixed;
   top: 0;
-  z-index: -1;
 `
 
 const AppBackImage = ({ src }) => {
@@ -19,6 +20,8 @@ const AppBackImage = ({ src }) => {
   )
 }
 
-AppBackImage.defaultProps = {}
+AppBackImage.defaultProps = {
+  src:'images/img2.png'
+}
 
 export default AppBackImage
