@@ -21,12 +21,12 @@ const fakedb = [
 const Message = ({ msgs, desc, imgurl }) => {
   return (
     <Container>
-      {msgs.map((o) => (
+      {/* {msgs.map((o) => (
         <Cont>
            <img src={o.photo_url} /><Desc>{o.description} </Desc>
-          {/* <Desc>{desc}</Desc> <img src={imgurl}/>  */}
+          <Desc>{desc}</Desc> <img src={imgurl}/> 
         </Cont>
-      ))}
+      ))} */}
     </Container>
   )
 }
