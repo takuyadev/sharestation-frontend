@@ -6,7 +6,7 @@ const FormInput = styled.div``
 const Input = styled.input`
   display: inline-block;
   background-color: #e3e3e3;
-  /* border: 1px solid #999; */
+  width:300px;
   border-radius: 3px;
   padding: 5px 8px;
   outline: none;
