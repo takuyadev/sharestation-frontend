@@ -42,11 +42,13 @@ const MainPage = (expand) => {
       <AppBackImage src='images/img1.png' 
       // style={{ zIndex: 0 }}
        />
-      <Link to='/FeedPage'>
+
+      {/* <Link to='/FeedPage'>
         <BtnCont>
           <SmallBtn icon='icons/icon9.png' />
         </BtnCont>
-      </Link>
+      </Link> */}
+
       <LFCont expanded={expanded}>
         <LandingForm
           onSignup={() => {

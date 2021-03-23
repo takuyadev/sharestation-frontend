@@ -34,6 +34,8 @@ const FeedPage = ({}) => {
     //console.log(resp, "img", resp.data.Photo_url, "desc", resp.data.description)
 
     var resp = await axios.get('https://dog.ceo/api/breeds/image/random')
+    // var resp = await axios.get(' https://sharestation.herokuapp.com/api/posts')
+    // console.log(resp)
     console.log(resp, 'img', resp.data.message, 'desc', resp.data.status)
     setImg(resp.data.message)
     setDesc(resp.data.message)
@@ -43,7 +45,7 @@ const FeedPage = ({}) => {
     <Container>
       <AppBackImage src={img} />
 
-      <Link to='/MainPage'>
+      <Link to='/'>
         <BtnCont>
           <SmallBtn icon='icons/icon8.png' />
         </BtnCont>

@@ -29,18 +29,21 @@ const InputCont = styled.div`
     margin: 15px 0;
   }
 `
-const UploadForm = ({ tips, BtnText, onButton, onUpload }) => {
+const UploadForm = ({ tips, BtnText, onButton, onUpload, onChange }) => {
   // const [title, setTitle] = useState('job')
   const [desc, setDesc] = useState('desc')
-  const [imgurl, setImgurl] = useState('img')
+  const [file, setFile] = useState(null)
 
   return (
     <App>
       <InputCont>
         <CustomInputs
           type='file'
+          accept="image/*"
           onChange={(e) => {
-            setImgurl(e.target.value)
+            setFile(e.target.files[0])
+            console.log(e.target.files[0]);
+            //onChange(e.target.value);
           }}
         />
         <Inputs
@@ -57,7 +60,7 @@ const UploadForm = ({ tips, BtnText, onButton, onUpload }) => {
       <BottomBtn
         BtnText='Upload'
         onClick={() => {
-          onButton(imgurl, desc)
+          onButton(file, desc)
         }}
       />
     </App>
@@ -69,6 +72,7 @@ UploadForm.defaultProps = {
   // text:
   //   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
   onButton: () => {},
+  onChange:()=>{}
 }
 
 export default UploadForm
