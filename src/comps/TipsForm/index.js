@@ -102,7 +102,7 @@ const TipsForm = ({ id, liked, text, icon, name, expand, onChange }) => {
           <AvatarCont>
             <IdCont>
               <Id>{id}</Id>
-              <Liked>{liked}</Liked>
+              <Liked>{liked} liked</Liked>
             </IdCont>
             <Avatar />
           </AvatarCont>
