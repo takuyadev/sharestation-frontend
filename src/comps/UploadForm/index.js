@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react'
-import styled from 'styled-components'
-import BottomBtn from 'comps/Buttons/BottomBtn'
-import CustomInputs from 'comps/CustomInputs'
-import Inputs from 'comps/Inputs'
-import BasicBtn from 'comps/Buttons/BasicBtn'
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+import BottomBtn from "comps/Buttons/BottomBtn";
+import CustomInputs from "comps/CustomInputs";
+import Inputs from "comps/Inputs";
+import BasicBtn from "comps/Buttons/BasicBtn";
 
 const App = styled.div`
   width: 100%;
@@ -18,7 +18,7 @@ const App = styled.div`
   padding: 30px 0 0;
   position: fixed;
   bottom: 0;
-`
+`;
 const InputCont = styled.div`
   display: flex;
   flex-direction: column;
@@ -28,51 +28,59 @@ const InputCont = styled.div`
   & > div {
     margin: 15px 0;
   }
-`
+`;
 const UploadForm = ({ tips, BtnText, onButton, onUpload, onChange }) => {
   // const [title, setTitle] = useState('job')
-  const [desc, setDesc] = useState('desc')
-  const [file, setFile] = useState(null)
+  const [desc, setDesc] = useState("desc");
+  const [title, setTitle] = useState("title");
+  const [file, setFile] = useState(null);
 
   return (
     <App>
       <InputCont>
         <CustomInputs
-          type='file'
+          type="file"
           accept="image/*"
           onChange={(e) => {
-            setFile(e.target.files[0])
-            console.log(e.target.files[0]);
-            //onChange(e.target.value);
+            setFile(e.target.files[0]);
+            onChange(e.target.files[0]);
           }}
         />
         <Inputs
-          type='text'
-          placeholder='Write your tips here'
-          height='100px'
+          type="text"
+          placeholder="Write the title here"
+          height="100px"
           onChange={(e) => {
-            setDesc(e.target.value)
+            setTitle(e.target.value);
+          }}
+        />
+        <Inputs
+          type="text"
+          placeholder="Write your tips here"
+          height="100px"
+          onChange={(e) => {
+            setDesc(e.target.value);
           }}
         />
         {/* <BasicBtn text="Preview" onClick={() => {
           onUpload()}}/> */}
       </InputCont>
       <BottomBtn
-        BtnText='Upload'
+        BtnText="Upload"
         onClick={() => {
-          onButton(file, desc)
+          onButton(title, desc);
         }}
       />
     </App>
-  )
-}
+  );
+};
 
 UploadForm.defaultProps = {
   tips: null,
   // text:
   //   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
   onButton: () => {},
-  onChange:()=>{}
-}
+  onChange: () => {},
+};
 
-export default UploadForm
+export default UploadForm;

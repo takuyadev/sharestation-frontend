@@ -61,6 +61,7 @@ const LoginForm = ({ display, onBtnClick, name }) => {
     //token = resp2.data;
     axios.defaults.headers.common["Authorization"] = resp2.data.accessToken;
     sessionStorage.setItem("token", resp2.data.accessToken);
+    sessionStorage.setItem("id", resp2.data.id);
     setShow(false);
 
     history.push("/FeedPage");

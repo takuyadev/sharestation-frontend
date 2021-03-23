@@ -63,8 +63,8 @@ const FeedPage = ({}) => {
         </BtnCont>
       </Link>
 
-      <AppBackImage src={posts.photo_url} />
-      <TipsForm onChange={HandleClick} text={posts.description}  />
+      <AppBackImage  src={posts.photo_url} />
+      <TipsForm onChange={HandleClick} id={posts.email} text={posts.description} liked={posts.likes} />
     </Container>
   );
 };
