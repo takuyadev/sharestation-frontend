@@ -56,11 +56,12 @@ const PTFCont = styled.div`
 `;
 
 const PostPage = (expand) => {
-  const params = useParams();
-  const history = useHistory();
+  const params = useParams("");
+  const history = useHistory("");
   const [expanded, setExpanded] = useState(true);
-  const [msgs, setMsgs] = useState([]);
-  const [file, setFile] = useState(null);
+  const [imgurl, setImgurl] = useState("");
+  const [status, setStatus] = useState("");
+
   // const [imgurl, setImgurl] = useState(null)
   const [desc, setDesc] = useState(null);
 
@@ -76,13 +77,12 @@ const PostPage = (expand) => {
         // setShow(false)
         history.push("/FeedPage");
       } else {
-        GetMsgs();
       }
     }
   };
 
-  const HandleUpload = async (file, desc, photo, msg) => {
-    console.log(file, desc, photo, msg);
+  const ImageUpload = async (file) => {
+    console.log(file);
     //var resp = axios post to upload images with /api/images
     //{image:file}
     //console.log(resp.data) to see if there is a linke for the uploaded image
@@ -92,7 +92,7 @@ const PostPage = (expand) => {
     var token = await sessionStorage.getItem("token");
     const formData = new FormData();
     formData.append("image", file);
-    formData.append("description", desc);
+
     var resp = await axios.post(
       "https://sharestation.herokuapp.com/api/images",
       formData,
@@ -104,8 +104,7 @@ const PostPage = (expand) => {
       }
     );
     //photo_url will use the resp.data link if its there
-    console.log("create", resp.data);
-
+    setImgurl("https://sharestation.herokuapp.com/" + resp.data.path);
     return false;
     // var resp = await axios.post(
     //   'https://sharestation.herokuapp.com/api/posts',
@@ -117,18 +116,30 @@ const PostPage = (expand) => {
     // GetMsgs()
   };
 
-  const GetMsgs = async () => {
+  const SendPost = async (title, desc) => {
     var token = await sessionStorage.getItem("token");
-    var resp = await axios.get("https://sharestation.herokuapp.com/api/posts", {
-      headers: {
-        Authorization: `Bearer ${token}`
+    var id = await sessionStorage.getItem("id");
+    var resp = await axios.post(
+      "https://sharestation.herokuapp.com/api/posts",
+      {
+        uploader_id: id,
+        title: title,
+        description: desc,
+        photo_url: imgurl,
       },
-    });
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
     // console.log(resp, 'img link', resp.data.message, 'status', resp.data.status)
     console.log("get file", resp);
-    // setImgurl(resp.data.message)
-    // setDesc(resp.data.status)
-    setMsgs(resp.data);
+
+
+    if (resp.status == 200) {
+      history.push("/FeedPage");
+    }
   };
 
   useEffect(() => {
@@ -136,7 +147,6 @@ const PostPage = (expand) => {
   }, [expand]);
 
   useEffect(() => {
-    GetMsgs();
     // CheckStorage()
   }, []);
 
@@ -160,18 +170,18 @@ const PostPage = (expand) => {
           <Header title='Tips' state='Add tips to your selected photo' />
         </TipsHead> */}
       </HeaderCont>
-      <Message />
+      <Message imgurl={imgurl}/>
 
       <ResultCont>
         {/* <CustomerPhoto src={img} /> */}
         <Message
           // desc={desc} imgurl={imgurl}
-          msgs={msgs}
+          msgs="hey"
         />
       </ResultCont>
 
       <PIFCont expanded={expanded}>
-        <UploadForm onButton={HandleUpload} />
+        <UploadForm onChange={ImageUpload} onButton={SendPost} />
         {/* <PostImgForm
           onBtnClick={() => {
             setExpanded(!expanded)
