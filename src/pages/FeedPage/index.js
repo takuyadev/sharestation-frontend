@@ -1,61 +1,74 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
-import AppBackImage from 'comps/AppBackImage'
-import TipsForm from 'comps/TipsForm'
-import SmallBtn from 'comps/Buttons/SmallBtn'
-import { Link } from 'react-router-dom'
-import axios from 'axios'
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+import AppBackImage from "comps/AppBackImage";
+import TipsForm from "comps/TipsForm";
+import SmallBtn from "comps/Buttons/SmallBtn";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 const Container = styled.div`
   width: 100%;
   height: 896px;
   display: flex;
   flex-direction: column;
-  /* background-image:url(images/img2.png);
   background-size:cover;
-  z-index: 1; */
-  background-color:#111;
-`
+  z-index: 1; 
+  background-color: #111;
+`;
 const BtnCont = styled.div`
   margin: 40px 0 0 20px;
   opacity: 0.5;
+  z-index: 2;
   :hover {
     opacity: 1;
   }
-`
+`;
 
 const FeedPage = ({}) => {
-  const [img, setImg] = useState(null)
-  const [desc, setDesc] = useState(null)
+  const [posts, setPosts] = useState([]);
+  const [array, setArray] = useState(0)
 
-  const HandleClick = async () => {
-    console.log('btnClied')
+
+  const GetPosts = async () => {
     // var resp = await axios.get('https://sharestation.herokuapp.com/api/posts')
     //console.log(resp, "img", resp.data.Photo_url, "desc", resp.data.description)
-
-    var resp = await axios.get('https://dog.ceo/api/breeds/image/random')
+    var token = await sessionStorage.getItem("token");
+    var resp = await axios.get("https://sharestation.herokuapp.com/api/posts", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     // var resp = await axios.get(' https://sharestation.herokuapp.com/api/posts')
     // console.log(resp)
-    console.log(resp, 'img', resp.data.message, 'desc', resp.data.status)
-    setImg(resp.data.message)
-    setDesc(resp.data.message)
-  }
+    console.log(resp.data.posts[array]);
+    setPosts(resp.data.posts[array]);
+  };
+
+  const HandleClick = () => {
+    setArray(array + 1)
+    console.log(array);
+    GetPosts();
+  };
+
+  useEffect(() => {
+    GetPosts();
+  }, []);
 
   return (
     <Container>
-      <AppBackImage src={img} />
 
-      <Link to='/'>
+      <Link to="/">
         <BtnCont>
-          <SmallBtn icon='icons/icon8.png' />
+          <SmallBtn icon="icons/icon8.png" />
         </BtnCont>
       </Link>
 
-      <TipsForm onChange={HandleClick} text={desc}/>
+      <AppBackImage src={posts.photo_url} />
+      <TipsForm onChange={HandleClick} text={posts.description}  />
     </Container>
-  )
-}
+  );
+};
 
-FeedPage.defaultProps = {}
+FeedPage.defaultProps = {};
 
-export default FeedPage
+export default FeedPage;
