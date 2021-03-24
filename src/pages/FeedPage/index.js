@@ -25,7 +25,7 @@ const ImgCont = styled.div`
 align-items:center; */
 `
 const BtnCont = styled.div`
-  margin: 40px 0 0 20px;
+  margin: 10px 0 0 20px;
   opacity: 0.5;
   position: fixed;
   top: 30px;

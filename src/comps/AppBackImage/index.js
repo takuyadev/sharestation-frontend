@@ -2,22 +2,17 @@ import React from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-  /* background-color: #999; */
-  position:relative;
-  z-index: -1;
-  
+ /* width: 100%; 
+   height: 100%; */
+
+  background-color: #111;
+  height:700px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
 `;
 const Img = styled.img`
-  width: 100%;
-  /* height:auto; */
-
-    /* min-width: ${(props) => (props.width ? props.width : '384px')};
-  max-width: ${(props) => (props.width ? props.width : '800px')}; */
-  min-height: 700px;
-  max-height: 100%;
-  object-fit: contain;
-  /* position: fixed;
-  top: 0; */
+padding-bottom:200px;
 `;
 
 const AppBackImage = ({ src }) => {
