@@ -3,7 +3,8 @@ import styled from "styled-components";
 
 const Container = styled.div`
   background-color: #999;
-  z-index: 0;
+  position:relative;
+  z-index: -1;
 `;
 const Img = styled.img`
   width: 100%;

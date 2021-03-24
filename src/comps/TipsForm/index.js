@@ -49,6 +49,7 @@ const Id = styled.div`
 const Liked = styled.div`
   font-size: 12px;
   color: #616161;
+  color:#ff6666;
 `;
 const TextCont = styled.div`
   font-size: 14px;
@@ -70,6 +71,7 @@ const CcBtnCont = styled.div`
 const TipsForm = ({
   id,
   liked,
+  title,
   text,
   icon,
   name,
@@ -121,12 +123,13 @@ const TipsForm = ({
       <Container>
         <MarginCont>
           <AvatarCont>
-            <IdCont>
+            {/* <IdCont> */}
               <Id>{id}</Id>
-              <Liked>{liked} liked</Liked>
-            </IdCont>
-            <Avatar />
+            {/* </IdCont> */}
+              <Liked>{liked} Liked </Liked>
+            {/* <Avatar /> */}
           </AvatarCont>
+          <TextCont expanded={expanded} style={{fontWeight:"bold", textTransform:'uppercase'}}>{title}</TextCont>
           <TextCont expanded={expanded}>{text}</TextCont>
         </MarginCont>
       </Container>
