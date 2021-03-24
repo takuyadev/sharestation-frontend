@@ -120,7 +120,7 @@ const PostPage = (expand) => {
     var token = await sessionStorage.getItem("token");
     var id = await sessionStorage.getItem("id");
     var resp = await axios.post(
-      "https://sharestation.herokuapp.com/api/posts",
+      "https://sharestation.herokuapp.com/api/sendposts",
       {
         uploader_id: id,
         title: title,
