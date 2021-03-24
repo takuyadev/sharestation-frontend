@@ -7,7 +7,7 @@ const BtnCont = styled.button`
   border-radius: 30px;
   border: none;
   cursor: pointer;
-  background-color: ${(props) => (props.clicked == 1 ? props.color : "#111")};
+  background-color: ${(props) => (props.clicked == 1 ? props.color : "#666666")};
   opacity: 0.5;
   backdrop-filter: blur(20px);
   :hover {

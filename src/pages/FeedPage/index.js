@@ -9,22 +9,26 @@ import axios from 'axios'
 const Container = styled.div`
   width: 100%;
   /* height: 800px; */
+  /* min-height: 800px;
+  max-height: 1000px; */
+  background-color: #111;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
-  /* background-size: contain; */
-  position:relative;
+  position: relative;
   z-index: 0;
-  /* background-color: #fad; */
-/* display:flex;
-flex-direction:column;
-justify-content:center; */
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
 `
 const ImgCont = styled.div`
+  /* justify-content:center;
+align-items:center; */
 `
 const BtnCont = styled.div`
   margin: 40px 0 0 20px;
   opacity: 0.5;
+  position: fixed;
+  top: 30px;
   /* z-index: 12; */
   :hover {
     opacity: 1;
