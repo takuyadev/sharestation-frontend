@@ -8,13 +8,17 @@ import axios from "axios";
 
 const Container = styled.div`
   width: 100%;
-  height: 896px;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  background-size: cover;
-  z-index: 1;
-  background-color: #111;
+  justify-content:sp;
+  /* background-size: contain; */
+  /* z-index: 0; */
+  background-color: #dad;
 `;
+const ImgCont = styled.div`
+`
+
 const BtnCont = styled.div`
   margin: 40px 0 0 20px;
   opacity: 0.5;
@@ -97,13 +101,14 @@ const FeedPage = ({}) => {
 
   return (
     <Container>
-      <Link to="/">
+      {/* <Link to="/">
         <BtnCont>
           <SmallBtn icon="icons/icon8.png" />
         </BtnCont>
-      </Link>
-
+      </Link> */}
+<ImgCont>
       <AppBackImage src={posts.photo_url} />
+      </ImgCont>
       <TipsForm
         onChange={HandleClick}
         onLike={LikePost}

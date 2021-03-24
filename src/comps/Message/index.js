@@ -1,15 +1,21 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react'
+import styled from 'styled-components'
 
-const Container = styled.div``;
+const Container = styled.div`
+  width: 40%;
+  display: flex;
+  margin: 0 auto;
+`
 const Cont = styled.div`
-  width: 200px;
-`;
+  & > img {
+    width: 100%;
+  }
+`
 const Desc = styled.div`
   color: #fad;
   font-weight: bold;
   font-size: 25px;
-`;
+`
 
 // const fakedb = [
 //   {
@@ -27,12 +33,11 @@ const Message = ({ msgs, desc, imgurl }) => {
         <Desc>{desc}</Desc> <img src={imgurl} /> */}
       </Cont>
     </Container>
-  );
-};
+  )
+}
 
 Message.defaultProps = {
-  // msgs: fakedb,
-  imgurl: "images/img1.png"
-};
+  imgurl: '',
+}
 
-export default Message;
+export default Message

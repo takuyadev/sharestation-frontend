@@ -3,8 +3,8 @@ import styled from "styled-components";
 import SmallBtn from "comps/Buttons/SmallBtn";
 import Header from "comps/Header";
 import UploadForm from "comps/UploadForm";
-import PostTipsForm from "comps/PostTipsForm";
-import PostImgForm from "comps/PostImgForm";
+// import PostTipsForm from "comps/PostTipsForm";
+// import PostImgForm from "comps/PostImgForm";
 import Message from "comps/Message";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -120,7 +120,7 @@ const PostPage = (expand) => {
     var token = await sessionStorage.getItem("token");
     var id = await sessionStorage.getItem("id");
     var resp = await axios.post(
-      "https://sharestation.herokuapp.com/api/sendposts",
+      "https://sharestation.herokuapp.com/api/posts",
       {
         uploader_id: id,
         title: title,
