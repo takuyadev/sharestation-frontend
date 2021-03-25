@@ -12,7 +12,7 @@ const Container = styled.div`
   justify-content:center;
 `;
 const Img = styled.img`
-padding-bottom:200px;
+/* padding-bottom:200px; */
 `;
 
 const AppBackImage = ({ src }) => {

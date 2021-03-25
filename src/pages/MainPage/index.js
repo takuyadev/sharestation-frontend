@@ -28,7 +28,6 @@ const BtnCont = styled.div`
   }
   /* z-index: 1; */
 `
-
 const MainPage = (expand) => {
   const [expanded, setExpanded] = useState(false)
   const [tab, setTab] = useState('Signup')
@@ -39,9 +38,10 @@ const MainPage = (expand) => {
 
   return (
     <div className='main'>
-      <AppBackImage src='images/img1.png' 
-      // style={{ zIndex: 0 }}
-       />
+      <AppBackImage
+        src='images/img1.png'
+        // style={{ zIndex: 0 }}
+      />
 
       <Link to='/FeedPage'>
         <BtnCont>
