@@ -73,6 +73,7 @@ const FeedPage = ({}) => {
         }
       );
       console.log("like = 1");
+      setLike(0);
     }
   };
 
