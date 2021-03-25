@@ -18,7 +18,7 @@ const Container = styled.div`
 const BtnCont = styled.div`
   margin: 40px 0 0 20px;
   opacity: 0.5;
-  z-index: 2;
+  z-index: 5;
   :hover {
     opacity: 1;
   }
@@ -27,8 +27,48 @@ const BtnCont = styled.div`
 const FeedPage = ({}) => {
   const [posts, setPosts] = useState([]);
   const [array, setArray] = useState(0);
-  const [liked, setLiked] = useState(0);
+  const [like, setLike] = useState(0);
+
+  const LikePost = async () => {
+    // var resp = await axios.get('https://sharestation.herokuapp.com/api/posts')
+    //console.log(resp, "img", resp.data.Photo_url, "desc", resp.data.description)
+    console.log("initiate like")
+    var token = await sessionStorage.getItem("token");
+    var id = await sessionStorage.getItem("id");
+    if (like === 0) {
+      console.log("like = 0")
+      var resp1 = await axios.post(
+        "https://sharestation.herokuapp.com/api/like",
+        {
+          user_id: id,
+          post_id: posts.id,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      setLike(1);
+      console.log("like " + like);
+    } else if (like === 1) {
+      console.log("like = 1")
+      var resp2 = await axios.delete(
+        "https://sharestation.herokuapp.com/api/like",
+        {
+          data: {
+            user_id: id,
+            post_id: posts.id,
+          },
+        }
+      );
+      setLike(0);
+      console.log("dislike " + like);
+    }
+  };
+
   const GetPosts = async () => {
+    console.log("get posts");
     // var resp = await axios.get('https://sharestation.herokuapp.com/api/posts')
     //console.log(resp, "img", resp.data.Photo_url, "desc", resp.data.description)
     var token = await sessionStorage.getItem("token");
@@ -44,73 +84,39 @@ const FeedPage = ({}) => {
         },
       }
     );
+
     // var resp = await axios.get(' https://sharestation.herokuapp.com/api/posts')
-    // console.log(resp)
-    console.log(resp.data.posts[array]);
+    console.log("update array" );
+    console.log("array " + array)
+    console.log(resp.data)
     setPosts(resp.data.posts[array]);
-    setLiked(resp.data.posts[array].likeStatus);
-    console.log(liked);
+    console.log("update like: " + resp.data.posts[array].likeStatus);
+    setLike(resp.data.posts[array].likeStatus);
   };
 
-  const LikePost = async () => {
-    // var resp = await axios.get('https://sharestation.herokuapp.com/api/posts')
-    //console.log(resp, "img", resp.data.Photo_url, "desc", resp.data.description)
-    var token = await sessionStorage.getItem("token");
-    var id = await sessionStorage.getItem("id");
-    console.log("token:" + id + " id:" + posts.id);
-    if (liked === 0) {
-      var resp1 = await axios.post(
-        "https://sharestation.herokuapp.com/api/like",
-        {
-          user_id: id,
-          post_id: posts.id,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-    } else if (liked === 1) {
-      var resp2 = await axios.delete(
-        "https://sharestation.herokuapp.com/api/like",
-        {
-          data: {
-            user_id: id,
-            post_id: posts.id,
-          },
-        }
-      );
-    }
-    GetPosts();
-  };
-
-  const HandleClick = async () => {
-    await setArray(array + 1);
-    console.log(array);
-    GetPosts();
+  const HandleNext = async () => {
+    setArray(array + 1);
   };
 
   useEffect(() => {
     GetPosts();
-  }, []);
+  }, [array, like]);
 
   return (
     <Container>
+      <AppBackImage src={posts.photo_url} />
       <Link to="/">
         <BtnCont>
           <SmallBtn icon="icons/icon8.png" />
         </BtnCont>
       </Link>
-
-      <AppBackImage src={posts.photo_url} />
       <TipsForm
-        onChange={HandleClick}
+        onChange={HandleNext}
         onLike={LikePost}
         id={posts.email}
         text={posts.description}
         liked={posts.likes}
-        btnLiked={liked}
+        btnLiked={like}
       />
     </Container>
   );
