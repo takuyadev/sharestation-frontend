@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import styled from 'styled-components'
-import AppBackImage from 'comps/AppBackImage'
-import TipsForm from 'comps/TipsForm'
-import SmallBtn from 'comps/Buttons/SmallBtn'
-import { Link } from 'react-router-dom'
-import axios from 'axios'
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+import AppBackImage from "comps/AppBackImage";
+import TipsForm from "comps/TipsForm";
+import SmallBtn from "comps/Buttons/SmallBtn";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 const Container = styled.div`
   width: 100%;
@@ -19,21 +19,21 @@ const Container = styled.div`
   display: flex;
   /* flex-direction: column; */
   justify-content: center;
-`
+`;
 const ImgCont = styled.div`
   /* justify-content:center;
 align-items:center; */
-`
+`;
 const BtnCont = styled.div`
   margin: 10px 0 0 20px;
   opacity: 0.5;
   position: fixed;
   top: 30px;
-   z-index: 12;
+  z-index: 12;
   :hover {
     opacity: 1;
   }
-`
+`;
 
 const FeedPage = ({}) => {
   const [posts, setPosts] = useState([]);
@@ -43,13 +43,13 @@ const FeedPage = ({}) => {
   const LikePost = async () => {
     // var resp = await axios.get('https://sharestation.herokuapp.com/api/posts')
     //console.log(resp, "img", resp.data.Photo_url, "desc", resp.data.description)
-    console.log("initiate like")
+    console.log("initiate like");
     var token = await sessionStorage.getItem("token");
     var id = await sessionStorage.getItem("id");
     if (like === 0) {
-      console.log("like = 0")
+      console.log("like = 0");
       var resp1 = await axios.post(
-        'https://sharestation.herokuapp.com/api/like',
+        "https://sharestation.herokuapp.com/api/like",
         {
           user_id: id,
           post_id: posts.id,
@@ -63,8 +63,8 @@ const FeedPage = ({}) => {
       setLike(1);
       console.log("like " + like);
     } else if (like === 1) {
-            var resp2 = await axios.delete(
-        'https://sharestation.herokuapp.com/api/like',
+      var resp2 = await axios.delete(
+        "https://sharestation.herokuapp.com/api/like",
         {
           data: {
             user_id: id,
@@ -72,8 +72,8 @@ const FeedPage = ({}) => {
           },
         }
       );
-      console.log("like = 1")
-    } 
+      console.log("like = 1");
+    }
   };
 
   const GetPosts = async () => {
@@ -93,11 +93,10 @@ const FeedPage = ({}) => {
         },
       }
     );
-
     // var resp = await axios.get(' https://sharestation.herokuapp.com/api/posts')
-    console.log("update array" );
-    console.log("array " + array)
-    console.log(resp.data)
+    console.log("update array");
+    console.log("array " + array);
+    console.log(resp.data);
     setPosts(resp.data.posts[array]);
     console.log("update like: " + resp.data.posts[array].likeStatus);
     setLike(resp.data.posts[array].likeStatus);
@@ -113,29 +112,9 @@ const FeedPage = ({}) => {
 
   return (
     <Container>
-      <AppBackImage src={posts.photo_url} />
       <Link to="/">
-
-      )
-    }
-    GetPosts()
-  }
-
-  const HandleClick = async () => {
-    await setArray(array + 1)
-    console.log(array)
-    GetPosts()
-  }
-
-  useEffect(() => {
-    GetPosts()
-  }, [])
-
-  return (
-    <Container>
-      <Link to='/'>
         <BtnCont>
-          <SmallBtn icon='icons/icon8.png' />
+          <SmallBtn icon="icons/icon8.png" />
         </BtnCont>
       </Link>
       <ImgCont>
@@ -151,9 +130,9 @@ const FeedPage = ({}) => {
         btnLiked={like}
       />
     </Container>
-  )
-}
+  );
+};
 
-FeedPage.defaultProps = {}
+FeedPage.defaultProps = {};
 
-export default FeedPage
+export default FeedPage;
