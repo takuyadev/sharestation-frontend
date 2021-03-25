@@ -1,28 +1,39 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-import AppBackImage from "comps/AppBackImage";
-import TipsForm from "comps/TipsForm";
-import SmallBtn from "comps/Buttons/SmallBtn";
-import { Link } from "react-router-dom";
-import axios from "axios";
+import React, { useState, useEffect } from 'react'
+import styled from 'styled-components'
+import AppBackImage from 'comps/AppBackImage'
+import TipsForm from 'comps/TipsForm'
+import SmallBtn from 'comps/Buttons/SmallBtn'
+import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 const Container = styled.div`
   width: 100%;
-  height: 896px;
+  /* height: 800px; */
+  /* min-height: 800px;
+  max-height: 1000px; */
+  background-color: #111;
   display: flex;
   flex-direction: column;
-  background-size: cover;
-  z-index: 1;
-  background-color: #111;
-`;
+  position: relative;
+  z-index: 0;
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+`
+const ImgCont = styled.div`
+  /* justify-content:center;
+align-items:center; */
+`
 const BtnCont = styled.div`
-  margin: 40px 0 0 20px;
+  margin: 10px 0 0 20px;
   opacity: 0.5;
-  z-index: 5;
+  position: fixed;
+  top: 30px;
+   z-index: 12;
   :hover {
     opacity: 1;
   }
-`;
+`
 
 const FeedPage = ({}) => {
   const [posts, setPosts] = useState([]);
@@ -38,7 +49,7 @@ const FeedPage = ({}) => {
     if (like === 0) {
       console.log("like = 0")
       var resp1 = await axios.post(
-        "https://sharestation.herokuapp.com/api/like",
+        'https://sharestation.herokuapp.com/api/like',
         {
           user_id: id,
           post_id: posts.id,
@@ -52,9 +63,8 @@ const FeedPage = ({}) => {
       setLike(1);
       console.log("like " + like);
     } else if (like === 1) {
-      console.log("like = 1")
-      var resp2 = await axios.delete(
-        "https://sharestation.herokuapp.com/api/like",
+            var resp2 = await axios.delete(
+        'https://sharestation.herokuapp.com/api/like',
         {
           data: {
             user_id: id,
@@ -62,9 +72,8 @@ const FeedPage = ({}) => {
           },
         }
       );
-      setLike(0);
-      console.log("dislike " + like);
-    }
+      console.log("like = 1")
+    } 
   };
 
   const GetPosts = async () => {
@@ -106,22 +115,45 @@ const FeedPage = ({}) => {
     <Container>
       <AppBackImage src={posts.photo_url} />
       <Link to="/">
+
+      )
+    }
+    GetPosts()
+  }
+
+  const HandleClick = async () => {
+    await setArray(array + 1)
+    console.log(array)
+    GetPosts()
+  }
+
+  useEffect(() => {
+    GetPosts()
+  }, [])
+
+  return (
+    <Container>
+      <Link to='/'>
         <BtnCont>
-          <SmallBtn icon="icons/icon8.png" />
+          <SmallBtn icon='icons/icon8.png' />
         </BtnCont>
       </Link>
+      <ImgCont>
+        <AppBackImage src={posts.photo_url} />
+      </ImgCont>
       <TipsForm
         onChange={HandleNext}
         onLike={LikePost}
         id={posts.email}
+        title={posts.title}
         text={posts.description}
         liked={posts.likes}
         btnLiked={like}
       />
     </Container>
-  );
-};
+  )
+}
 
-FeedPage.defaultProps = {};
+FeedPage.defaultProps = {}
 
-export default FeedPage;
+export default FeedPage

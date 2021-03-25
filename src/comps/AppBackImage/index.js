@@ -2,15 +2,17 @@ import React from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-  background-color: #999;
-  z-index: 0;
+ /* width: 100%; 
+   height: 100%; */
+
+  background-color: #111;
+  height:700px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
 `;
 const Img = styled.img`
-  width: 100%;
-  height: auto;
-  object-fit: fill;
-  position: fixed;
-  top: 0;
+padding-bottom:200px;
 `;
 
 const AppBackImage = ({ src }) => {

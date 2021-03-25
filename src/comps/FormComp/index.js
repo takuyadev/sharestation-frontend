@@ -8,7 +8,7 @@ import SmallBtn from 'comps/Buttons/SmallBtn'
 
 const Container = styled.div`
   width: 100%;
-  height: 490px;
+  height: 440px;
   background-color: #9999;
   backdrop-filter: blur(15px);
   border-radius: 40px 40px 0px 0px;

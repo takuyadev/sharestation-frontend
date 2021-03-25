@@ -7,6 +7,7 @@ const Input = styled.input`
   display: inline-block;
   background-color: #e3e3e3;
   width:300px;
+  /* height:30px; */
   border-radius: 3px;
   padding: 5px 8px;
   outline: none;
@@ -16,13 +17,10 @@ const Input = styled.input`
   text-shadow: 1px 1px #fff;
   font-weight: 700;
   font-size: 10pt;
-
   :hover::before {
     border-color: black;
   }
 `
-
-const Test = styled.input``
 
 const CustomInputs = ({ type, value, height, onChange }) => {
   return (
