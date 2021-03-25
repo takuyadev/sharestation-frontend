@@ -29,47 +29,25 @@ const BtnCont = styled.div`
   opacity: 0.5;
   position: fixed;
   top: 30px;
-  /* z-index: 12; */
+   z-index: 12;
   :hover {
     opacity: 1;
   }
 `
 
 const FeedPage = ({}) => {
-  const [posts, setPosts] = useState([])
-  const [array, setArray] = useState(0)
-  const [liked, setLiked] = useState(0)
-  const GetPosts = async () => {
-    // var resp = await axios.get('https://sharestation.herokuapp.com/api/posts')
-    //console.log(resp, "img", resp.data.Photo_url, "desc", resp.data.description)
-    var token = await sessionStorage.getItem('token')
-    var id = await sessionStorage.getItem('id')
-    var resp = await axios.post(
-      'https://sharestation.herokuapp.com/api/getposts',
-      {
-        user_id: id,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    )
-    // var resp = await axios.get(' https://sharestation.herokuapp.com/api/posts')
-    // console.log(resp)
-    console.log(resp.data.posts[array])
-    setPosts(resp.data.posts[array])
-    setLiked(resp.data.posts[array].likeStatus)
-    console.log(liked)
-  }
+  const [posts, setPosts] = useState([]);
+  const [array, setArray] = useState(0);
+  const [like, setLike] = useState(0);
 
   const LikePost = async () => {
     // var resp = await axios.get('https://sharestation.herokuapp.com/api/posts')
     //console.log(resp, "img", resp.data.Photo_url, "desc", resp.data.description)
-    var token = await sessionStorage.getItem('token')
-    var id = await sessionStorage.getItem('id')
-    console.log('token:' + id + ' id:' + posts.id)
-    if (liked === 0) {
+    console.log("initiate like")
+    var token = await sessionStorage.getItem("token");
+    var id = await sessionStorage.getItem("id");
+    if (like === 0) {
+      console.log("like = 0")
       var resp1 = await axios.post(
         'https://sharestation.herokuapp.com/api/like',
         {
@@ -81,9 +59,11 @@ const FeedPage = ({}) => {
             Authorization: `Bearer ${token}`,
           },
         }
-      )
-    } else if (liked === 1) {
-      var resp2 = await axios.delete(
+      );
+      setLike(1);
+      console.log("like " + like);
+    } else if (like === 1) {
+            var resp2 = await axios.delete(
         'https://sharestation.herokuapp.com/api/like',
         {
           data: {
@@ -91,6 +71,51 @@ const FeedPage = ({}) => {
             post_id: posts.id,
           },
         }
+      );
+      console.log("like = 1")
+    } 
+  };
+
+  const GetPosts = async () => {
+    console.log("get posts");
+    // var resp = await axios.get('https://sharestation.herokuapp.com/api/posts')
+    //console.log(resp, "img", resp.data.Photo_url, "desc", resp.data.description)
+    var token = await sessionStorage.getItem("token");
+    var id = await sessionStorage.getItem("id");
+    var resp = await axios.post(
+      "https://sharestation.herokuapp.com/api/getposts",
+      {
+        user_id: id,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    // var resp = await axios.get(' https://sharestation.herokuapp.com/api/posts')
+    console.log("update array" );
+    console.log("array " + array)
+    console.log(resp.data)
+    setPosts(resp.data.posts[array]);
+    console.log("update like: " + resp.data.posts[array].likeStatus);
+    setLike(resp.data.posts[array].likeStatus);
+  };
+
+  const HandleNext = async () => {
+    setArray(array + 1);
+  };
+
+  useEffect(() => {
+    GetPosts();
+  }, [array, like]);
+
+  return (
+    <Container>
+      <AppBackImage src={posts.photo_url} />
+      <Link to="/">
+
       )
     }
     GetPosts()
@@ -117,13 +142,13 @@ const FeedPage = ({}) => {
         <AppBackImage src={posts.photo_url} />
       </ImgCont>
       <TipsForm
-        onChange={HandleClick}
+        onChange={HandleNext}
         onLike={LikePost}
         id={posts.email}
         title={posts.title}
         text={posts.description}
         liked={posts.likes}
-        btnLiked={liked}
+        btnLiked={like}
       />
     </Container>
   )

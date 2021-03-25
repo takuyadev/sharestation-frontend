@@ -63,9 +63,7 @@ const LoginForm = ({ display, onBtnClick, name }) => {
     sessionStorage.setItem("token", resp2.data.accessToken);
     sessionStorage.setItem("id", resp2.data.id);
     setShow(false);
-
     history.push("/FeedPage");
-
     console.log("identifier/token", resp2.data.accessToken);
   };
 

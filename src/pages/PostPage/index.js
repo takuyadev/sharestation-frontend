@@ -134,8 +134,7 @@ const PostPage = (expand) => {
       }
     )
     // console.log(resp, 'img link', resp.data.message, 'status', resp.data.status)
-    console.log('get file', resp)
-
+    console.log("get file", resp);
     if (resp.status == 200) {
       history.push('/FeedPage')
     }
