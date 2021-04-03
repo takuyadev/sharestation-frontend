@@ -29,8 +29,8 @@ ShareStation allows users to share their “stations” via photos and text to h
 
 ### `created`
 
-created all of 20 components and 3 page for the single page application using usStates, handlers, useEffect, router and route\
-Collaborated on post and get data using axios, token, await, async and session with a back-end developer
+Created all of the 20 components and 3 pages for the single page application using usStates, handlers, useEffect, router and route\
+Collaborated on the post and get data using axios, token, await, async and session with a back-end developer
 
 
 ### `Language & Framework`
