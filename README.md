@@ -1,15 +1,36 @@
-# Login Form
+# ShareStation
+
+
+### `The Community`
+
+The community we are targeting are
+
+- Creatives that are experiencing a shift to working remotely
+
+- Currently working from home, office, etc.
+
+- Anyone who has to work behind a computer.
+
+
+### `The Niche`
+
+Computer “stations” and organizational habits that our target niche have in their offices or homes, most likely behind a computer and working at one.
+
+This includes: Monitors, Computers, Desks, Organizational Forms, Sticky Notes, Journals, Software, etc.
+
+### `The Solution`
+
+ShareStation allows users to share their “stations” via photos and text to help others with organizational habits behind the desk or station. The goal being that users can view other’s workstation (They can share their stations) which will help other users improve their own stations.
 
 
 ### `Demo`
 <img width="450px" src="https://user-images.githubusercontent.com/55810731/113469484-a55b4680-9402-11eb-9059-462fa3b354a0.gif" />
 
 
-
 ### `created`
 
 20 components and 3 page for the single page application using usStates, handlers, useEffect, router and route\
-post and get data using axios, token, await, async, session, 
+post and get data using axios, token, await, async and session.
 
 
 ### `used`
