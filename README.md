@@ -18,13 +18,16 @@ Computer “stations” and organizational habits that our target niche have in 
 
 This includes: Monitors, Computers, Desks, Organizational Forms, Sticky Notes, Journals, Software, etc.
 
+
 ### `The Solution`
 
 ShareStation allows users to share their “stations” via photos and text to help others with organizational habits behind the desk or station. The goal being that users can view other’s workstation (They can share their stations) which will help other users improve their own stations.
 
 
 ### `Demo`
-<img width="450px" src="https://user-images.githubusercontent.com/55810731/113469484-a55b4680-9402-11eb-9059-462fa3b354a0.gif" />
+<img width="420px" src="https://user-images.githubusercontent.com/55810731/113470536-36ceb680-940b-11eb-94fa-66b43b36b1b9.gif" />
+<img width="420px" src="https://user-images.githubusercontent.com/55810731/113470566-5d8ced00-940b-11eb-9137-1ac9026ceb7a.gif" />
+
 
 
 ### `created`
