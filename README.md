@@ -29,16 +29,16 @@ ShareStation allows users to share their “stations” via photos and text to h
 
 ### `created`
 
-20 components and 3 page for the single page application using usStates, handlers, useEffect, router and route\
-post and get data using axios, token, await, async and session.
+created all of 20 components and 3 page for the single page application using usStates, handlers, useEffect, router and route\
+Collaborated on post and get data using axios, token, await, async and session with a back-end developer
 
 
-### `used`
+### `Language & Framework`
 
 React, Javascript, styped-components, scss
 
 
-### `installed`
+### `Installed`
 
 $ npx create-react-app\
 $ npm install styled-components sass --save\
@@ -46,7 +46,7 @@ $ npm install axios --save
 
 
 
-### `original plan on Figma`
+### `Draft plan on Figma`
 <img height="auto" width="700px" src="https://user-images.githubusercontent.com/55810731/113215120-42fe1c80-922f-11eb-90dc-961e02fb55b1.png" />
 
 
