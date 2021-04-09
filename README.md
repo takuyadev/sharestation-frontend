@@ -50,6 +50,7 @@ $ npm install axios --save
 
 
 ### `Draft plan on Figma`
+Designed by Seunghee Park\
 <img height="auto" width="700px" src="https://user-images.githubusercontent.com/55810731/113215120-42fe1c80-922f-11eb-90dc-961e02fb55b1.png" />
 
 
