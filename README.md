@@ -1,10 +1,10 @@
 # ShareStation
 
 ### `Summary`
-- Academic project | Mar 2021
-- Front-end Developer: Rina 
+ Academic project | Mar 2021
+- Front-end Developer: Rina
 - Back-end Developer: Takuya
-- Designer: Seunghee
+- UI Designer: Seunghee
 
 ### `The Community`
 
