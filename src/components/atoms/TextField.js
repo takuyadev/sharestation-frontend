@@ -5,7 +5,7 @@ function TextField({ onChange, placeholder, value}) {
       placeholder={placeholder}
       value={value && value}
       onChange={onChange}
-      className="px-4 py-2 bg-transparent border-b-2 border-white focus:outline-none placeholder:text-white"
+      className="pr-4 py-2 bg-transparent border-b-2 border-white focus:outline-none text-white placeholder:text-white/25"
     />
   );
 }
