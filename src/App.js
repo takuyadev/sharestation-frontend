@@ -1,25 +1,24 @@
-import MainPage from './pages/MainPage'
-import FeedPage from 'pages/FeedPage'
-import PostPage from 'pages/PostPage'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
-import './App.scss'
+import { SecondaryBtn, BorderBtn } from "./components/Buttons";
+import { BlurredRndContainer } from "./components/RoundedContainer";
+import { UilFacebookF } from "@iconscout/react-unicons";
 
 function App() {
   return (
-    <div className='App'>
-      {/* <MainPage/> */}
-      {/* <FeedPage/> */}
-      {/* <PostPage /> */}
-
-      <Router>
-        <Switch>
-          <Route path='/' exact component={MainPage} />
-          <Route path='/FeedPage' exact component={FeedPage} />
-          <Route path='/PostPage' component={PostPage} />
-        </Switch>
-      </Router>
+    <div className="flex h-screen gap-2 bg-hero bg-cover bg-center">
+      <BlurredRndContainer>
+        <h1 className="text-2xl text-white font-bold text-center">
+          Share your station.
+        </h1>
+        <SecondaryBtn>
+          <UilFacebookF /> Continue with Facebook
+        </SecondaryBtn>
+        <SecondaryBtn>
+          <UilFacebookF /> Continue with Email.
+        </SecondaryBtn>
+        <BorderBtn>Sign up with email</BorderBtn>
+      </BlurredRndContainer>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
