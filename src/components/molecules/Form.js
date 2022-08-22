@@ -6,9 +6,9 @@ import { UilFacebookF } from "@iconscout/react-unicons";
 import TextField from "../atoms/TextField";
 import TextDivider from "./TextDivider";
 
-function Form() {
+function Form({onSubmit}) {
   return (
-    <form className="flex flex-col gap-8 justify-center align-center">
+    <form onSubmit={onSubmit} className="flex flex-col gap-8 justify-center align-center">
       <TextField placeholder="Email" />
       <TextField placeholder="Password" />
       <TextField placeholder="Full Name" />
@@ -22,6 +22,8 @@ function Form() {
   );
 }
 
-Form.defaultProps = {};
+Form.defaultProps = {
+  onSubmit: (e) => e.preventDefault()
+};
 
 export default Form;

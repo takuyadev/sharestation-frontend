@@ -1,12 +1,13 @@
 import PostButtons from "./components/molecules/PostButtons";
-import LandingForm from "./components/organisms/LandingForm";
-import UserForm from "./components/organisms/UserForm"
+import Post from "./components/organisms/Post";
+import Page from "./components/templates/PageTemplate";
+import Upload from "./components/organisms/Upload";
 
 function App() {
   return (
-    <div className="flex h-screen gap-2 bg-hero bg-cover bg-center">
-      <LandingForm/>
-    </div>
+    <Page className="flex h-screen gap-2 bg-hero bg-cover bg-center">
+      <Upload></Upload>
+    </Page>
   );
 }
 

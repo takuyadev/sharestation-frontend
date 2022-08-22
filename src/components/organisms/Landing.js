@@ -6,7 +6,7 @@ import { UilFacebookF } from "@iconscout/react-unicons";
 // Breaking Atomic System rule due to conveluting the process; to simple of a page
 // ...to justify breaking it down even further.
 
-function LandingForm() {
+function Landing() {
   return (
     <BlurredRndContainer>
       <h1 className="text-2xl text-white font-bold text-center">
@@ -24,4 +24,4 @@ function LandingForm() {
   );
 }
 
-export default LandingForm;
+export default Landing;

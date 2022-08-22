@@ -8,8 +8,10 @@ import {
 
 function PostButtons() {
   return (
-    <div className="flex justify-between absolute top-0 w-full p-4">
-      <UilAngleDoubleLeft />
+    <div className="flex justify-between absolute top-0 p-4 w-full z-50">
+      <div className="self-start">
+       <IconButton icon={<UilAngleDoubleLeft />} />
+      </div>
       <div className="flex flex-col gap-8 align-center">
         <IconButton icon={<UilAngleRight />} />
         <IconButton icon={<UilHeart />} />
