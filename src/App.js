@@ -1,13 +1,17 @@
-import PostButtons from "./components/molecules/PostButtons";
-import Post from "./components/organisms/Post";
-import Page from "./components/templates/PageTemplate";
-import Upload from "./components/organisms/Upload";
+import UploadPost from "./components/organisms/Upload";
+import Onboarding from "./components/pages/Onboarding";
+import Posts from "./components/pages/Posts";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <Page className="flex h-screen gap-2 bg-hero bg-cover bg-center">
-      <Upload></Upload>
-    </Page>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Onboarding />} />
+        <Route path="/posts" element={<Posts />} />
+        <Route path="/upload" element={<UploadPost />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

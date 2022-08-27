@@ -3,12 +3,17 @@
 import UploadHeader from "../molecules/UploadHeader";
 import UploadForm from "../molecules/UploadForm";
 import Carousel from "../molecules/Carousel";
+import CloseButton from "../molecules/CloseButton";
 import { FilledRndContainer } from "../atoms/RoundedContainer";
+import { Link } from 'react-router-dom'
 
-function Upload() {
+function Upload({ imgs }) {
   return (
-    <div>
-      <Carousel />
+    <div className="flex flex-col w-full">
+      <CloseButton />
+      <div className="mt-40">
+        <Carousel imgs={imgs} />
+      </div>
       <FilledRndContainer>
         <UploadHeader />
         <UploadForm />

@@ -3,27 +3,33 @@
 
 import { PrimaryBtn, SecondaryBtn } from "../atoms/Buttons";
 import { UilFacebookF } from "@iconscout/react-unicons";
-import TextField from "../atoms/TextField";
+import { LightTextField } from "../atoms/TextField";
 import TextDivider from "./TextDivider";
+import { Link } from "react-router-dom";
 
-function Form({onSubmit}) {
+function Form({ onSubmit }) {
   return (
-    <form onSubmit={onSubmit} className="flex flex-col gap-8 justify-center align-center">
-      <TextField placeholder="Email" />
-      <TextField placeholder="Password" />
-      <TextField placeholder="Full Name" />
+    <form
+      onSubmit={onSubmit}
+      className="flex flex-col gap-8 justify-center align-center"
+    >
+      <LightTextField placeholder="Email" />
+      <LightTextField placeholder="Password" />
+      <LightTextField placeholder="Full Name" />
       <PrimaryBtn>Sign up</PrimaryBtn>
       <TextDivider>or</TextDivider>
-      <SecondaryBtn>
-        {" "}
-        <UilFacebookF /> Continue with Facebook
-      </SecondaryBtn>
+      <Link to="/posts">
+        <SecondaryBtn>
+          {" "}
+          <UilFacebookF /> Continue with Facebook
+        </SecondaryBtn>
+      </Link>
     </form>
   );
 }
 
 Form.defaultProps = {
-  onSubmit: (e) => e.preventDefault()
+  onSubmit: e => e.preventDefault()
 };
 
 export default Form;

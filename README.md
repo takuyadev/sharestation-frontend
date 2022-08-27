@@ -46,6 +46,14 @@ Collaborated on the post and get data using axios, token, await, async and sessi
 React, Javascript, styped-components, scss
 
 
+### `Organization`
+
+This project follows the Atomic Design system for component organization.(resources below).
+
+- https://danilowoz.com/blog/atomic-design-with-react
+- https://paulonteri.com/thoughts/atomic-design-react#molecules
+
+
 ### `Installed`
 
 $ npx create-react-app\
