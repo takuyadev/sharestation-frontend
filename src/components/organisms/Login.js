@@ -1,15 +1,16 @@
-import { useState } from "react";
+
 import { BlurredRndContainer } from "../atoms/RoundedContainer";
-import Form from "../molecules/Form";
+import LoginForm from "../molecules/LoginForm";
 import Tabs from "../molecules/Tabs";
 
-function UserForm() {
+function Login({ user }) {
+
   return (
     <BlurredRndContainer>
-      <Tabs />
-      <Form></Form>
+      <Tabs active={false} />
+      <LoginForm />
     </BlurredRndContainer>
   );
 }
 
-export default UserForm;
+export default Login;

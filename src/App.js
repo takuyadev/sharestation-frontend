@@ -1,17 +1,37 @@
-import UploadPost from "./components/organisms/Upload";
-import Onboarding from "./components/pages/Onboarding";
-import Posts from "./components/pages/Posts";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import UploadPage from "./components/pages/UploadPage";
+import OnboardingPage from "./components/pages/OnboardingPage";
+import PostsPage from "./components/pages/PostsPage";
+import LoginPage from "./components/pages/LoginPage";
+import SignupPage from "./components/pages/SignupPage";
+import { Routes, Route } from "react-router-dom";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useState, useEffect } from "react";
 
 function App() {
+  const [user, setUser] = useState(null);
+  const auth = getAuth();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, user => {
+      if (user) {
+        setUser(user);
+        console.log("Logged in.");
+      } else {
+        setUser(null)
+        console.log("Not logged in.");
+      }
+    });
+    return unsubscribe;
+  },[user]);
+
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Onboarding />} />
-        <Route path="/posts" element={<Posts />} />
-        <Route path="/upload" element={<UploadPost />} />
-      </Routes>
-    </BrowserRouter>
+    <Routes>
+      <Route path="/" element={<OnboardingPage  user={user}/>} />
+      <Route path="/posts" element={<PostsPage user={user}/>} />
+      <Route path="/upload" element={<UploadPage  user={user}/>} />
+      <Route path="/login" element={<LoginPage user={user}/>} />
+      <Route path="/signup" element={<SignupPage  user={user}/>} />
+    </Routes>
   );
 }
 

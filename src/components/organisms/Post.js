@@ -5,7 +5,7 @@ import PostContainer from "../molecules/PostContainer";
 import PostHeader from "../molecules/PostHeader";
 
 function Post({ description, title, likes }) {
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(true);
 
   return (
     <>
