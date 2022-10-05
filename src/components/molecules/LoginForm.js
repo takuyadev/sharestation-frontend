@@ -2,12 +2,7 @@
 // ...to justify breaking it down even further.
 
 import { PrimaryBtn, SecondaryBtn } from "../atoms/Buttons";
-import {
-  getAuth,
-  signInWithEmailAndPassword,
-  signInWithPopup,
-  GoogleAuthProvider
-} from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import { UilGoogle } from "@iconscout/react-unicons";
 import { LightTextField } from "../atoms/TextField";
 import TextDivider from "./TextDivider";

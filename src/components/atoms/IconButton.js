@@ -10,8 +10,4 @@ function IconButton({ onClick, icon }) {
   );
 }
 
-IconButton.defaultProps = {
-  onClick: () => console.log("Clicked!")
-};
-
 export default IconButton;

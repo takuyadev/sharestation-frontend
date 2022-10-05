@@ -3,8 +3,6 @@ import Page from "../templates/PageTemplate";
 import Upload from "../organisms/Upload";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { getDatabase } from "firebase/database";
-import { app } from "../../firebase.config";
 
 function UploadPage({ user }) {
   const [users, setUsers] = useState({
@@ -17,7 +15,6 @@ function UploadPage({ user }) {
     ]
   });
 
-  const database = getDatabase(app);
   const navigate = useNavigate();
   
   useEffect(() => {
